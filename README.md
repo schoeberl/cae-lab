@@ -6,6 +6,7 @@ This repository collects lab material for the 2017 Computer Architecture and Eng
 
 ## Links
 
+ * [The RISC-V Instruction Set Manual](https://riscv.org/specifications/)
  * [Venus RV32 simulator](https://kvakil.github.io/venus/)
  * [SPIM system calls](https://www.doc.ic.ac.uk/lab/secondyear/spim/node8.html)
  * [Bare metal program on spike](https://github.com/schoeberl/cae-examples)
@@ -14,6 +15,9 @@ This repository collects lab material for the 2017 Computer Architecture and Eng
 
  * [Eclipse plugin](https://gnu-mcu-eclipse.github.io/plugins/features/)
  * <https://stackoverflow.com/questions/31390127/how-can-i-compile-c-code-to-get-a-bare-metal-skeleton-of-a-minimal-risc-v-assemb>
+ * [Assembler appendix from H&P](http://pages.cs.wisc.edu/~larus/HP_AppA.pdf)
+ * [MARS docu](http://courses.missouristate.edu/KenVollmar/mars/CCSC-CP%20material/MARS%20Tutorial.doc)
+ * [CS61C summer lab 3](http://www-inst.eecs.berkeley.edu/~cs61c/su17/labs/03/)
 
 ## Tool Installation
 
