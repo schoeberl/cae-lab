@@ -4,6 +4,10 @@ This repository collects lab material for the 2017 Computer Architecture and Eng
 
 # Resources
 
+ * An Ubuntu VM with RISC-V tools installed
+   * user: cae-lba pwd: cae-lab
+ * Use the free [VMWare Workstation Player](https://my.vmware.com/en/web/vmware/free#desktop_end_user_computing/vmware_workstation_player/12_0)
+
 ## Links
 
  * [The RISC-V Instruction Set Manual](https://riscv.org/specifications/)
@@ -19,18 +23,83 @@ This repository collects lab material for the 2017 Computer Architecture and Eng
  * [MARS docu](http://courses.missouristate.edu/KenVollmar/mars/CCSC-CP%20material/MARS%20Tutorial.doc)
  * [CS61C summer lab 3](http://www-inst.eecs.berkeley.edu/~cs61c/su17/labs/03/)
 
-## Tool Installation
+## VM and Tool Installation
 
-Just random notes on my installation experiments (on top of Ubuntu/patmos VM)
+This is a log how I prepared the Ubuntu VM for the CAE lab. It might be useful for your own installation of the RISC-V tools.
 
- * Install additional Ubuntu packages (after rm lock file)
- * create risc-v
- * Follow <https://github.com/riscv/riscv-tools>
- * clone tools, cd, and install submodules
- * Another round of apt-get
- * Set RISCV and PATH
- * sudo apt-get install libusb-1.0-0-dev
- * ./build.sh
+ * Use Ubuntu 16.04 desktop
+ * Settings: lock to turn off screen locking
+ * Settings: fix timezone as it is not correctly detected
+ * We will use Rocket as a starting point <https://github.com/freechipsproject/rocket-chip>
+ * Remove the lock file
+ * Install Ubuntu packages according to riscv-tools and Chisel 3:
 
-Changes: better use local for the installation folder.
-Maybe use Rocket as more complete tool set.
+```
+sudo apt-get install autoconf automake autotools-dev curl device-tree-compiler libmpc-dev libmpfr-dev libgmp-dev libusb-1.0-0-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev
+```
+
+```
+sudo apt-get install default-jdk
+```
+
+```
+echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 642AC823
+sudo apt-get update
+sudo apt-get install sbt
+```
+
+```
+sudo apt-get install git make autoconf g++ flex bison
+```
+
+```
+git clone http://git.veripool.org/git/verilator
+cd verilator
+git pull
+git checkout verilator_3_886
+unset VERILATOR_ROOT # For bash, unsetenv for csh
+autoconf # Create ./configure script
+./configure
+make
+sudo make install
+```
+
+Set RISCV and update your path by adding this into `.profile` (including logout and login):
+
+```
+# RISC-V tools
+export RISCV=$HOME/rocket-chip/riscv-tools/local
+export PATH=$PATH:$RISCV/bin
+```
+
+Checkout all code:
+
+```
+git clone https://github.com/ucb-bar/rocket-chip.git
+cd rocket-chip
+git submodule update --init
+```
+
+Build the RISC-V tools:
+```
+cd riscv-tools
+git submodule update --init --recursive
+./build.sh
+./build-rv32ima.sh # if you are using RV32
+```
+
+After executing `./build-rv32ima.sh` spikes default is at rv32ima (was 64 bit before).
+VM size increased to 19 GB from 16 GB before 32-bit support.
+
+Danger!!! Be aware that 32 or 64-bit compilation need to be in sync with the spike simulation. 32-bit hello world is:
+
+```
+echo -e '#include <stdio.h>\n int main(void) { printf("Hello world!\\n"); return 0; }' > hello.c
+riscv32-unknown-elf-gcc -o hello hello.c
+spike pk hello
+```
+
+This is than the END of the tiny RISC-V tool intro.
+
+Martin
