@@ -4,14 +4,26 @@ This repository collects lab material for the 2017 Computer Architecture and Eng
 
 # Resources
 
+For the first labs we will use the web based RISC-V simulator [Venus](https://kvakil.github.io/venus/).
+However, for later lab exercises and your final project we need the full RISC-V toolchain, including a port
+of gcc and the `spike` simulator.
+
+If you are using Ubuntu (or any other Linux version) or a Mac OS X laptop, you can install the tools
+native on your machine. However, to simplify life we provide a virtual machine(VM) with Ubuntu
+and all needed tools installed. You need about 18 GB of free disk space for the VM and another
+temporary space of 7 GB for the .zip file
+
  * An Ubuntu VM with RISC-V tools installed
-   * user: cae-lba pwd: cae-lab
+   * [cae-lab.zip](http://patmos.compute.dtu.dk/cae-lab.zip)
+   * user: cae-lab pwd: cae-lab
  * Use the free [VMWare Workstation Player](https://my.vmware.com/en/web/vmware/free#desktop_end_user_computing/vmware_workstation_player/12_0)
 
 ## Links
 
  * [The RISC-V Instruction Set Manual](https://riscv.org/specifications/)
  * [Venus RV32 simulator](https://kvakil.github.io/venus/)
+ * [RISC-V Tools (GNU Toolchain, ISA Simulator, Tests)](https://github.com/riscv/riscv-tools)
+ * [Rocket Chip Generator (including the RISC- tools)](https://github.com/freechipsproject/rocket-chip)
  * [SPIM system calls](https://www.doc.ic.ac.uk/lab/secondyear/spim/node8.html)
  * [Bare metal program on spike](https://github.com/schoeberl/cae-examples)
 
