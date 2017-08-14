@@ -1,6 +1,6 @@
 # Lab Material for CAE
 
-This repository collects lab material for the 2017 Computer Architecture and Engineering course (02155) at DTU.
+This repository provides lab material for the 2017 Computer Architecture and Engineering course (02155) at DTU.
 
 # Resources
 
@@ -9,7 +9,7 @@ However, for later lab exercises and your final project we need the full RISC-V 
 of gcc and the `spike` simulator.
 
 If you are using Ubuntu (or any other Linux version) or a Mac OS X laptop, you can install the tools
-native on your machine. However, to simplify life we provide a virtual machine(VM) with Ubuntu
+native on your machine. However, to simplify life we provide a virtual machine (VM) with Ubuntu
 and all needed tools installed. You need about 18 GB of free disk space for the VM and another
 temporary space of 7 GB for the .zip file
 
@@ -17,6 +17,18 @@ temporary space of 7 GB for the .zip file
    * [cae-lab.zip](http://patmos.compute.dtu.dk/cae-lab.zip)
    * user: cae-lab pwd: cae-lab
  * Use the free [VMWare Workstation Player](https://my.vmware.com/en/web/vmware/free#desktop_end_user_computing/vmware_workstation_player/12_0)
+
+Test the VM by opening a terminal and starting the compiler with:
+```
+riscv32-unknown-elf-gcc
+```
+
+You should get an error, similar to following
+```
+riscv32-unknown-elf-gcc: fatal error: no input files
+compilation terminated.
+```
+which is good as you know the the compiler is installed.
 
 ## Links
 
