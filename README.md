@@ -9,7 +9,7 @@ Lab session where no link is given to material, we will provide the material in 
 
  * week 1: Number representation and performance
  * week 2: Exercises from Chapter 3
- * week 3: [lab3/README.md]
+ * week 3: [Lab 3](lab3/README.md)
 
 # Resources
 
