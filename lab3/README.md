@@ -8,7 +8,7 @@ The lab session uses the [Venus RISC-V simulator](https://kvakil.github.io/venus
 
 Start by pasting following [minimal.s](minimal.s) assembler program into Venus.
 ```
-# As minmal RISC-V assembler example
+# As minimal RISC-V assembler example
 li x1, 2
 li x2, 3
 add x3, x1, x2
