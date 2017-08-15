@@ -2,6 +2,15 @@
 
 This repository provides lab material for the 2017 Computer Architecture and Engineering course (02155) at DTU.
 
+# Lab Overview
+
+The following list gives an overview of all lab sessions and assignments.
+Lab session where no link is given to material, we will provide the material in CampusNet.
+
+ * week 1: Number representation and performance
+ * week 2: Exercises from Chapter 3
+ * week 3: [lab3/README.md]
+
 # Resources
 
 For the first labs we will use the web based RISC-V simulator [Venus](https://kvakil.github.io/venus/).
