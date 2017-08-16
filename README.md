@@ -18,7 +18,7 @@ or (3) fork the repo (and clone locally), to be able to contribute back with cha
 **Contributions:** We are happily accepting contributions in the form of
 pull requests. Even the fix of a small typo is appreciated.
 
-# Lab Overview
+## Lab Overview
 
 The following list gives an overview of all lab sessions and assignments.
 For lab sessions where no link is given, we will provide the material in CampusNet.
@@ -27,11 +27,17 @@ For lab sessions where no link is given, we will provide the material in CampusN
  * week 2: Exercises from Chapter 3
  * week 3: [Lab 3](lab3)
 
-# Resources
+## Resources
+
+### RISC-V Simple Simulator
 
 For the first labs we will use the web based RISC-V simulator [Venus](https://kvakil.github.io/venus/).
-However, for later lab exercises and your final project we need the full RISC-V toolchain, including a port
-of gcc and the `spike` simulator.
+Venus executes in your browser and there is no need to install any tools
+on your laptop.
+
+### RISC-V C Compiler and Spike
+
+However, for later lab exercises and your final project we need the full RISC-V toolchain, including a port of gcc and the `spike` simulator.
 
 If you are using Ubuntu (or any other Linux version) or a Mac OS X laptop, you can install the tools
 natively on your machine. However, to simplify life we provide a virtual machine (VM) with Ubuntu
@@ -75,7 +81,7 @@ spike pk hello
  * [SPIM system calls](https://www.doc.ic.ac.uk/lab/secondyear/spim/node8.html)
  * [Bare metal program on spike](https://github.com/schoeberl/cae-examples)
 
-### Some More Unchecked Links
+### Some More (Unchecked) Links
 
  * [Eclipse plugin](https://gnu-mcu-eclipse.github.io/plugins/features/)
  * <https://stackoverflow.com/questions/31390127/how-can-i-compile-c-code-to-get-a-bare-metal-skeleton-of-a-minimal-risc-v-assemb>
@@ -125,7 +131,8 @@ make
 sudo make install
 ```
 
-Set RISCV and update your path by adding this into `.profile` (including logout and login):
+Set RISCV and update your path by adding this into `.profile`
+(including logout and login to update your environment variables):
 
 ```
 # RISC-V tools
