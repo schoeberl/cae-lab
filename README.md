@@ -78,6 +78,7 @@ spike pk hello
  * [RISC-V Green Card](https://www.cl.cam.ac.uk/teaching/1617/ECAD+Arch/files/docs/RISCVGreenCardv8-20151013.pdf)
  * [RISC-V Tools (GNU Toolchain, ISA Simulator, Tests)](https://github.com/riscv/riscv-tools)
  * [Rocket Chip Generator (including the RISC- tools)](https://github.com/freechipsproject/rocket-chip)
+ * [Wildcat RV32I simulator](https://github.com/schoeberl/wildcat)
  * [SPIM system calls](https://www.doc.ic.ac.uk/lab/secondyear/spim/node8.html)
  * [Bare metal program on spike](https://github.com/schoeberl/cae-examples)
 
