@@ -1,11 +1,27 @@
-# Lab Material for CAE
+# Lab Material for Computer Architecture
 
-This repository provides lab material for the 2017 Computer Architecture and Engineering course (02155) at DTU.
+This repository provides lab material for the 2017
+[Computer Architecture and Engineering course (02155)](http://www2.imm.dtu.dk/courses/02155/) at DTU.
+Although this lab is customized for the DTU course, it can also serve as
+introduction lab for computer architecture in general and the RISC-V
+instruction set specifically.
+
+The lab is based on COD: [Computer Organization and Design RISC-V Edition](https://www.amazon.com/Computer-Organization-Design-RISC-V-Architecture/dp/0128122757):
+The Hardware Software Interface, 1st Edition,
+by David A. Patterson (Author), John L. Hennessy (Author).
+
+To use this material you can: (1) just browse it online on GitHub,
+(2) clone the repo to have all material offline (using it also
+for your solutions),
+or (3) fork the repo (and clone locally), to be able to contribute back with changes.
+
+**Contributions:** We are happily accepting contributions in the form of
+pull requests. Even the fix of a small typo is appreciated.
 
 # Lab Overview
 
 The following list gives an overview of all lab sessions and assignments.
-Lab session where no link is given to material, we will provide the material in CampusNet.
+For lab sessions where no link is given, we will provide the material in CampusNet.
 
  * week 1: Number representation and performance
  * week 2: Exercises from Chapter 3
@@ -18,7 +34,7 @@ However, for later lab exercises and your final project we need the full RISC-V 
 of gcc and the `spike` simulator.
 
 If you are using Ubuntu (or any other Linux version) or a Mac OS X laptop, you can install the tools
-native on your machine. However, to simplify life we provide a virtual machine (VM) with Ubuntu
+natively on your machine. However, to simplify life we provide a virtual machine (VM) with Ubuntu
 and all needed tools installed. You need about 18 GB of free disk space for the VM and another
 temporary space of 7 GB for the .zip file
 
@@ -38,11 +54,22 @@ riscv32-unknown-elf-gcc: fatal error: no input files
 compilation terminated.
 ```
 which is good as you know the the compiler is installed.
+You are now prepared for all RISC-V based lab work and projects.
+
+
+For the more curious, you can sneak ahead and compile and run 
+_Hello World_ program on RISC-V `spike` as follows:
+```
+echo -e '#include <stdio.h>\n int main(void) { printf("Hello world!\\n"); return 0; }' > hello.c
+riscv32-unknown-elf-gcc -o hello hello.c
+spike pk hello
+```
 
 ## Links
 
  * [The RISC-V Instruction Set Manual](https://riscv.org/specifications/)
- * [Venus RV32 simulator](https://kvakil.github.io/venus/)
+ * [Venus RV32I simulator](https://kvakil.github.io/venus/)
+ * [RISC-V Green Card](https://www.cl.cam.ac.uk/teaching/1617/ECAD+Arch/files/docs/RISCVGreenCardv8-20151013.pdf)
  * [RISC-V Tools (GNU Toolchain, ISA Simulator, Tests)](https://github.com/riscv/riscv-tools)
  * [Rocket Chip Generator (including the RISC- tools)](https://github.com/freechipsproject/rocket-chip)
  * [SPIM system calls](https://www.doc.ic.ac.uk/lab/secondyear/spim/node8.html)
