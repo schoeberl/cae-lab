@@ -94,6 +94,10 @@ spike pk hello
 
 This is a log how I prepared the Ubuntu VM for the CAE lab. It might be useful for your own installation of the RISC-V tools.
 
+_Please note that this is a log on how I prepared the Ubuntu VM for the CAE lab.
+This instructions might be out of date soon. Please refer to the original README
+documents of the RISC-V tools._
+
  * Use Ubuntu 16.04 desktop
  * Settings: lock to turn off screen locking
  * Settings: fix timezone as it is not correctly detected
