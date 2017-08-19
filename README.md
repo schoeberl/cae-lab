@@ -82,6 +82,12 @@ spike pk hello
  * [SPIM system calls](https://www.doc.ic.ac.uk/lab/secondyear/spim/node8.html)
  * [Bare metal program on spike](https://github.com/schoeberl/cae-examples)
 
+### Other University Courses using RISC-V
+
+ * [UC Berkeley: CS61C: Great Ideas in Computer Architecture (Machine Structures)](http://inst.eecs.berkeley.edu/~cs61c/fa17/)
+ * [MIT: 6.175: Constructive Computer Architecture](http://csg.csail.mit.edu/6.175/index.html)
+ * [Cornell: ECE 4750: Computer Architecture](http://www.csl.cornell.edu/courses/ece4750/2016f/)
+
 ### Some More (Unchecked) Links
 
  * [Eclipse plugin](https://gnu-mcu-eclipse.github.io/plugins/features/)
