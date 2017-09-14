@@ -33,7 +33,8 @@ For lab sessions where no link is given, we will provide the material in CampusN
 
 For the first labs we will use the web based RISC-V simulator [Venus](https://kvakil.github.io/venus/).
 Venus executes in your browser and there is no need to install any tools
-on your laptop.
+on your laptop. You can also save that web page to have a local copy of
+the simulator to work when offline.
 
 ### RISC-V C Compiler and Spike
 
