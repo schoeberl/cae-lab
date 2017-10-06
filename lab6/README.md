@@ -148,3 +148,5 @@ __Warning:__ The VM contains a version of the compiler/linker that does a
 strange 3 byte alignment of the function, which you can see with `objdump`.
 Therefore, when you use this binary for your simulator, you need to discard
 those first three bytes.
+
+See also: https://github.com/riscv/riscv-tools/issues/132
