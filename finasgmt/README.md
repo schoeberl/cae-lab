@@ -42,14 +42,12 @@ Pipelined?
 
 ## Testing
 
+We have provided test programs that you can execute with simulator and then compare your output with our provided output files. The test files are located under [/tests](./tests) in folders corresponding to the tasks. Tests under a specific task folder will only test functionality related to those tasks, e.g., tests under [./tests/task1](./tests/task1) will not make use of branching.
+
 ## Deliverables
 
-You will be working in groups of 3-4.
+For this assignment you will be working in groups of 3-4. You will not receive extra credits by doing all the work by yourself, so there is no benefit in working alone.
 
-Source code.
+Similar to the other assignments, you have to hand in a report using the front page specified in assignment 1. The report should contain a description of your simulator, and also describe how you extended it for each task.
 
-Binary?
-
-Report.
-
-
+In addition to the report, you should hand in your simulator source code as well as a binary that can execute on Ubuntu x64. You only have to hand in one set of source code and binary, i.e., not one for each stage in the tasks. These additional deliverables should be uploaded as a single zip file.
