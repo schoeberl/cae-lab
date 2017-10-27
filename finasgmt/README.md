@@ -4,13 +4,17 @@ For this final assignment you will implement a RISC-V simulator. You can write t
 
 ## Simulator Architecture
 
-The simulator has to read a binary file containing RISC-V instructions (what about registry and memory files?). The program counter (PC) should start at the first instruction and otherwise execute according to the instructions, i.e., increase the PC by 1 and in the case of branches, update the PC to the instruction specified location.
+TODO: Start with easy words and the 32-bit version
+
+The simulator has to read a binary file containing RISC-V instructions. The program counter (PC) should start at the first instruction (address 0) and otherwise execute according to the instructions, i.e., increase the PC by 4 bytes (1 32-bit word) and in the case of branches, update the PC to the instruction specified location.
 
 Depending on the complexity of the input program it might execute arithmetic instructions, as well as load and store results in memory. In addition to the PC, you will therefore have to track registers, and potential memory content, throughout program execution.
 
-When you reach the end of the program, i.e., when the PC moves past the last instruction, you have to write out the content of all the registers. We will compare this output to the expected results, thereby verifying the correctness of your simulator. 
+When you reach the end of the program, i.e., when the PC moves past the last instruction or exits the program with an exit `ecall 10` (see [Venus env. call](https://github.com/kvakil/venus/wiki/Environmental-Calls), you have to write out the content of all the registers. We will compare this output to the expected results, thereby verifying the correctness of your simulator.
 
-You are NOT required to simulate the pipeline stages? 
+For debugging it will also be a good idea to write out the register contents after each instruction.
+
+You are *NOT* required to simulate the pipeline stages? 
 
 ### Input
 
@@ -18,15 +22,15 @@ The binary input files contain the programs to be executed. Each instruction is 
 
 ### Output
 
-The output files must be binary and contain the content of registers x0-x31, in that order. Remember that registers in RISC-V are 64 bits, which means they can be stored and written from your program as Java (or similar) longs.
+You should print out the register content at the program end. Additional for the final check you shall implement a binary dump of the register contents of registers x0-x31, in that order.
 
 ## Tasks
 
-In this assingment you have x tasks to fulfill
+In this assignment you have x tasks to fulfill.
 
 ### Task 1
 
-In this task you have to write the main simulator. Your simulator must support reading an input file containing a RISC-V program and write the output file after execution. It must also support executing the progrtam instructions in order and support the base arithmetic instructions.
+In this task you have to write the main simulator. Your simulator must support reading an input file containing a RISC-V program and write the output file after execution. It must also support executing the program instructions in order and support the base arithmetic instructions.
 
 ### Task 2
 
@@ -34,11 +38,8 @@ In this task you must extend your simulator by adding a PC and support reading i
 
 ### Task 3
 
-Multiplication?
+Function calls.
 
-### Task 4
-
-Pipelined?
 
 ## Testing
 
@@ -46,7 +47,7 @@ We have provided test programs that you can execute with simulator and then comp
 
 ## Deliverables
 
-For this assignment you will be working in groups of 3-4. You will not receive extra credits by doing all the work by yourself, so there is no benefit in working alone.
+For this assignment you will be working in groups of 1-2. You will not receive extra credits by doing all the work by yourself, so there is no benefit in working alone.
 
 Similar to the other assignments, you have to hand in a report using the front page specified in assignment 1. The report should contain a description of your simulator, and also describe how you extended it for each task.
 
