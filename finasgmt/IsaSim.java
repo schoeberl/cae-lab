@@ -40,7 +40,7 @@ public class IsaSim {
 				reg[rd] = reg[rs1] + imm;
 				break;
 			default:
-				System.out.println("Not yet iomplemented");
+				System.out.println("Opcode " + opcode + " not yet implemented");
 				break;
 			}
 
