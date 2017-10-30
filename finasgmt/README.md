@@ -36,19 +36,23 @@ However, if you are having troubles to get started we also provide you with a ti
 
 ## Tasks
 
-In this assignment you have x tasks to fulfill.
+This assignment is organized in three tasks with example code given to you.
+Feel free to write your own test cases, which can also share with your fellow
+students.
+The tasks are here only to help you to organize your work. You do not need to hand
+in any results when completing a task.
 
 ### Task 1
 
-In this task you have to write the main simulator. Your simulator must support reading an input file containing a RISC-V program and write the output file after execution. It must also support executing the program instructions in order and support the base arithmetic instructions.
+In this task you will start programming your simulator with support of basic RISC-V instructions. To benefit best from the given example programs, your simulator should be able to read an input file containing a RISC-V program and write the output file after execution. The example programs just contain basic instruction and no control flow changes. Therefore, you can simply execute the instructions in order.
 
 ### Task 2
 
-In this task you must extend your simulator by adding a PC and support reading instructions based on it. Furthermore, you must support all the base branching instructions, i.e., in case a branch should be taken your simulator must update the PC according to the instruction.
+In this task you will extend your simulator by adding a program counter (PC) to support branch instructions. Furthermore, you will add all the base branching instructions, i.e., in case a branch should be taken your simulator must update the PC according to the instruction.
 
 ### Task 3
 
-Function calls.
+Within task 3 you will add support for function calls and load and store instructions. Have a strategy how you will handle (initialize) the stack pointer (SP).
 
 
 ## Testing
@@ -61,4 +65,4 @@ For this assignment you will be working in groups of 1-2. You will not receive e
 
 Similar to the other assignments, you have to hand in a report using the front page specified in assignment 1. The report should contain a description of your simulator, and also describe how you extended it for each task.
 
-In addition to the report, you should hand in your simulator source code as well as a binary that can execute on Ubuntu x64. You only have to hand in one set of source code and binary, i.e., not one for each stage in the tasks. These additional deliverables should be uploaded as a single zip file.
+In addition to the report, you should hand in your simulator source code that can be compiled and executed on Ubuntu x64. You only have to hand in one set of source code, i.e., not one for each stage in the tasks. These additional deliverables should be uploaded as a single zip file. Furthermore, you need to demonstrate your simulator to a TA.
