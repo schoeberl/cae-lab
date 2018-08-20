@@ -24,9 +24,9 @@ The following list gives an overview of all lab sessions and assignments.
 For lab sessions where no link is given, we will provide the material in CampusNet.
 
  * week 1: Number representation and performance
- * week 2: Exercises from Chapter 3
+ * week 2: [Lab 2](lab2)
  * week 3: [Lab 3](lab3)
- * week 4: [Lab 4](lab4)
+ * week 4: Exercises from Chapter 3
  * week 5: work on first assignment
  * week 6: [Lab 6](lab6)
 
