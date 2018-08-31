@@ -1,4 +1,4 @@
-# Lab Session 3
+# Lab Session 2
 
 ## Introduction to RISC-V ISA and the Venus Simulator
 

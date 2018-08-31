@@ -1,4 +1,4 @@
-# Lab Session 4
+# Lab Session 3
 
 This lab session continues to use the [Venus RISC-V simulator](https://kvakil.github.io/venus/).
 
