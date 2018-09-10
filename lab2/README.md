@@ -6,7 +6,7 @@ The lab session uses the [Venus RISC-V simulator](https://kvakil.github.io/venus
 which can execute in a browser with JavaScript enabled.
 We will explore basic machine instructions on the RISC-V instruction set.
 
-After the lab you will have a good overview of _n_ out of _m_ RISC-V
+After the lab you will have a good overview of the first RISC-V
 instructions (RV32I).
 You will be able to simulate small to medium size programs on a RISC-V
 instruction set simulator.
