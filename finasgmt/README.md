@@ -63,6 +63,6 @@ We have provided test programs that you can execute with simulator and then comp
 
 For this assignment you will be working in groups of 1-2. You will not receive extra credits by doing all the work by yourself, so there is no benefit in working alone.
 
-Similar to the other assignments, you have to hand in a report using the front page specified in assignment 1. The report should contain a description of your simulator, and also describe how you extended it for each task.
+Similar to the other assignments, you have to hand in a report using the front page specified in assignment 1. The report should contain an introduction, a description of the design and implementaton of your simulator, and some discussion of your design.
 
-In addition to the report, you should hand in your simulator source code that can be compiled and executed on Ubuntu x64. You only have to hand in one set of source code, i.e., not one for each stage in the tasks. These additional deliverables should be uploaded as a single zip file. Furthermore, you need to demonstrate your simulator to a TA.
+In addition to the report, you should hand in your simulator source code that can be compiled and executed on Ubuntu. You only have to hand in one set of source code, i.e., not one for each stage in the tasks. These additional deliverables should be uploaded as a single zip file. Furthermore, you need to demonstrate your simulator to a TA.
