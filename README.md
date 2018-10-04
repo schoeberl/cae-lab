@@ -131,7 +131,7 @@ except do not execute
 ./build.sh
 ```
 Instead, change all references in `build-rv32ima.sh` from `rv32ima` to `rv32i`.
-Set the RISCV varaible and path by adding this into `.profile`
+Set the RISCV variable and path by adding this into `.profile`
 (including logout and login to update your environment variables):
 ```
 # RISC-V tools
