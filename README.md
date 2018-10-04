@@ -143,8 +143,15 @@ Then run
 ./build-rv32ima.sh
 ```
 
+Create a file `linker.ld` in the $HOME directory containing the following:
+```
+SECTIONS {
+.text :{*(*)}
+}
+```
+
 Download the RISCV pipeline simulator Ripes from [here](https://github.com/mortbopet/Ripes/releases).
-No installation is required.
+No installation is required, however, enable the file's execute bit to make it executable.
 
 This is the END of the tiny RISC-V tool intro.
 
