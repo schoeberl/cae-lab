@@ -29,7 +29,7 @@ For lab sessions where no link is given, we will provide the material in CampusN
  * week 4: Exercises from Chapter 3
  * week 5: work on first assignment
  * week 6: [Lab 6](lab6)
- * week 6: [Lab 7](lab7)
+ * week 7: [Lab 7](lab7)
 
 ## Resources
 
