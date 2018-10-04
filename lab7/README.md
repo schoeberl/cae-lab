@@ -18,7 +18,8 @@ your c program won't necessarily have `main` in the beginning.
 To make sure that `main` runs first, add the following jump in the beginning of your c program,
 which simulates startup code (usually called ```_start```):
 ```c
-// This is our minimal startup code (usually in _startup)
+// This is our minimal startup code (usually in _start)
+// Probably you should set the SP here as well
 asm("jal main");          // call main
 asm("add x11, x10, x0");  // save return value in x11
 asm("addi x10, x0, 10");  // prepare ecall exit
