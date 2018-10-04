@@ -15,9 +15,12 @@ be used when you want to compile programs for your own simulator.
 
 Ripes starts from the first instruction in the file, and
 your c program won't necessarily have `main` in the beginning.
-To make sure that `main` runs first, add the following jump in the beginning of your c program
+To make sure that `main` runs first, add the following jump in the beginning of your c program,
+which simulates startup code (usually called ```_start```):
 ```c
-asm("j main;");
+asm("jal main");
+asm("addi x10, x0, 10");
+asm("ecall");
 ```
 
 You can now compile your c program to an executable using
