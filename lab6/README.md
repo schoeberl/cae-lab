@@ -15,7 +15,7 @@ temporary space of 7 GB for the .zip file
  * An Ubuntu VM with RISC-V tools installed
    * [caelab.zip](http://patmos.compute.dtu.dk/caelab.zip)
    * user: cae-lab pwd: cae-lab
- * Use the free [VMWare Workstation Player](https://my.vmware.com/en/web/vmware/free#desktop_end_user_computing/vmware_workstation_player/12_0)
+ * Use the free [VMWare Workstation Player](https://www.vmware.com/products/workstation-player.html)
 
 ## Basic Linux/Unix Skills
 
