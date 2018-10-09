@@ -9,6 +9,8 @@ An RISC-V instruction set simulator can execute RISC-V programs in software. The
  1. read the instructions from the memory
  2. decode the instruction (probably with a large switch statement)
  3. executes the instruction
+ 
+You shall implement the minimal subset of the RISC-V instruciton set, which is the integer instruciton set (RV32I). You can ignore following instructions: ```fence```, ```fence.i```, ```ebreak```. The official ISA documentation is available at [RISC-V Specification](https://riscv.org/specifications/).
 
 The final simulator has to read a binary file containing RISC-V instructions. The program counter (PC) should start at the first instruction (address 0) and otherwise execute according to the instructions, i.e., increase the PC by 4 bytes (1 32-bit word) and in the case of branches, update the PC to the instruction specified location.
 
