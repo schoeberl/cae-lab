@@ -165,7 +165,7 @@ An alternative is to use the free VM [VirtualBox](https://www.virtualbox.org/).
 We provide: 
 
  * An Ubuntu VM for VirtualBox  with RISC-V tools installed
-   * [caelab-vb.zip](http://patmos.compute.dtu.dk/caelab.zip)
+   * [caelab-vb.zip](http://patmos.compute.dtu.dk/caelab-vb.zip)
    * user: caelab pwd: caelab
 
 
