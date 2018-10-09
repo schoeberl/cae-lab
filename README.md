@@ -50,9 +50,9 @@ and all needed tools installed. You need about 18 GB of free disk space for the 
 temporary space of 7 GB for the .zip file
 
  * An Ubuntu VM with RISC-V tools installed
-   * [cae-lab.zip](http://patmos.compute.dtu.dk/cae-lab.zip)
-   * user: cae-lab pwd: cae-lab
- * Use the free [VMWare Workstation Player](https://my.vmware.com/en/web/vmware/free#desktop_end_user_computing/vmware_workstation_player/12_0)
+   * [caelab.zip](http://patmos.compute.dtu.dk/caelab.zip)
+   * user: caelab pwd: caelab
+ * Use the free [VMWare Workstation Player](https://www.vmware.com/products/workstation-player.html)
 
 Test the VM by opening a terminal and starting the compiler with:
 ```
@@ -115,7 +115,7 @@ documents of the RISC-V tools._
  * Do not use LVM
  * Settings: turn off screen locking
  
-Install VM tools for clipboard support adn restart VM
+Install VM tools for clipboard support and restart VM
 ```bash
 sudo apt install open-vm-tools
 ```
@@ -135,7 +135,7 @@ Set the RISCV variable and path by adding this into `.profile`
 (including logout and login to update your environment variables):
 ```
 # RISC-V tools
-export RISCV=$HOME/riscv
+export RISCV=$HOME/riscv-tools
 export PATH=$PATH:$RISCV/bin
 ```
 Then run
@@ -153,6 +153,37 @@ SECTIONS {
 Download the RISCV pipeline simulator Ripes from [here](https://github.com/mortbopet/Ripes/releases).
 No installation is required, however, enable the file's execute bit to make it executable.
 
-This is the END of the tiny RISC-V tool intro.
+## RISC-V Tools on macOS
 
-Martin
+### Ubuntu on macOS
+
+There is no free VMWaare Player available for macOS. You can buy their
+[VMware Fusion](https://www.vmware.com/products/fusion.html).
+
+An alternative is to use the free VM [VirtualBox](https://www.virtualbox.org/).
+
+We provide: 
+
+ * An Ubuntu VM for VirtualBox  with RISC-V tools installed
+   * [caelab-vb.zip](http://patmos.compute.dtu.dk/caelab.zip)
+   * user: caelab pwd: caelab
+
+
+### Native Installation on macOS
+
+For diverse GNU tools you need a packet manager for those tools under macOS.
+
+[Homebrew](https://brew.sh/) is one of the popular ones. For the packets
+listed in the Ubuntu installation you need to find the related ones for brew/macOS.
+As my (Martin's) Mac has brew already installed, I cannot list all that are
+needed. But if anyone is doing this installation from scratch I would love
+to add this information here.
+
+According to the RISC-V tools README, following Homebrew packages need to be
+installed with following command:
+
+```
+brew install libusb dtc gawk gnu-sed gmp mpfr libmpc isl wget automake md5sha1sum
+```
+
+Then follow the instructions above like the setup on Ubuntu.
