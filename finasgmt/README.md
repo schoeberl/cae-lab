@@ -57,7 +57,7 @@ Within task 3 you will add support for function calls and load and store instruc
 
 ## Testing
 
-We have provided test programs that you can execute with simulator and then compare your output with our provided output files. The test files are located under [/tests](./tests) in folders corresponding to the tasks. Tests under a specific task folder will only test functionality related to those tasks, e.g., tests under [./tests/task1](./tests/task1) will not make use of branching.
+We have provided test programs that you can execute with simulator and then compare your output with our provided output files. The test files are located under [/tests](./tests) in folders corresponding to the tasks. Tests under a specific task folder will only test functionality related to those tasks, e.g., tests under [./tests/task1](./tests/task1) will not make use of branching. Additional tests for each individual instruction can be found [here](https://github.com/TheAIBot/RISC-V_Sim/tree/master/RISC-V_Sim/InstructionTests).
 
 ## Deliverables
 
