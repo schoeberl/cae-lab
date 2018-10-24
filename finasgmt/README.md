@@ -1,6 +1,6 @@
 # Final Assignment
 
-For this final assignment you will implement a RISC-V instruction set simulator. You can write the simulator in the language of your choice, but we have to be able to run the simulator on a x64 machine running Ubuntu 16.04.3 LTS.   
+For this final assignment you will implement a RISC-V instruction set simulator. You can write the simulator in the language of your choice, but we have to be able to run the simulator on a x64 machine running Ubuntu.   
 
 ## Instruction Set Simulator
 
@@ -9,6 +9,8 @@ An RISC-V instruction set simulator can execute RISC-V programs in software. The
  1. read the instructions from the memory
  2. decode the instruction (probably with a large switch statement)
  3. executes the instruction
+ 
+You shall implement the minimal subset of the RISC-V instruciton set, which is the integer instruciton set (RV32I). You can ignore following instructions: ```fence```, ```fence.i```, ```ebreak```. The official ISA documentation is available at [RISC-V Specification](https://riscv.org/specifications/).
 
 The final simulator has to read a binary file containing RISC-V instructions. The program counter (PC) should start at the first instruction (address 0) and otherwise execute according to the instructions, i.e., increase the PC by 4 bytes (1 32-bit word) and in the case of branches, update the PC to the instruction specified location.
 
@@ -63,6 +65,6 @@ We have provided test programs that you can execute with simulator and then comp
 
 For this assignment you will be working in groups of 1-2. You will not receive extra credits by doing all the work by yourself, so there is no benefit in working alone.
 
-Similar to the other assignments, you have to hand in a report using the front page specified in assignment 1. The report should contain a description of your simulator, and also describe how you extended it for each task.
+Similar to the other assignments, you have to hand in a report using the front page specified in assignment 1. The report should contain an introduction, a description of the design and implementaton of your simulator, and some discussion of your design.
 
-In addition to the report, you should hand in your simulator source code that can be compiled and executed on Ubuntu x64. You only have to hand in one set of source code, i.e., not one for each stage in the tasks. These additional deliverables should be uploaded as a single zip file. Furthermore, you need to demonstrate your simulator to a TA.
+In addition to the report, you should hand in your simulator source code that can be compiled and executed on Ubuntu. You only have to hand in one set of source code, i.e., not one for each stage in the tasks. These additional deliverables should be uploaded as a single zip file. Furthermore, you need to demonstrate your simulator to a TA.

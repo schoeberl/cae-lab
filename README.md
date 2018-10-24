@@ -24,11 +24,12 @@ The following list gives an overview of all lab sessions and assignments.
 For lab sessions where no link is given, we will provide the material in CampusNet.
 
  * week 1: Number representation and performance
- * week 2: Exercises from Chapter 3
+ * week 2: [Lab 2](lab2)
  * week 3: [Lab 3](lab3)
- * week 4: [Lab 4](lab4)
+ * week 4: Exercises from Chapter 3
  * week 5: work on first assignment
  * week 6: [Lab 6](lab6)
+ * week 7: [Lab 7](lab7)
 
 ## Resources
 
@@ -49,9 +50,9 @@ and all needed tools installed. You need about 18 GB of free disk space for the 
 temporary space of 7 GB for the .zip file
 
  * An Ubuntu VM with RISC-V tools installed
-   * [cae-lab.zip](http://patmos.compute.dtu.dk/cae-lab.zip)
-   * user: cae-lab pwd: cae-lab
- * Use the free [VMWare Workstation Player](https://my.vmware.com/en/web/vmware/free#desktop_end_user_computing/vmware_workstation_player/12_0)
+   * [caelab.zip](http://patmos.compute.dtu.dk/caelab.zip)
+   * user: caelab pwd: caelab
+ * Use the free [VMWare Workstation Player](https://www.vmware.com/products/workstation-player.html)
 
 Test the VM by opening a terminal and starting the compiler with:
 ```
@@ -108,80 +109,81 @@ _Please note that this is a log on how I prepared the Ubuntu VM for the CAE lab.
 This instructions might be out of date soon. Please refer to the original README
 documents of the RISC-V tools._
 
- * Use Ubuntu 16.04 desktop
- * Settings: lock to turn off screen locking
- * Settings: fix timezone as it is not correctly detected
- * We will use Rocket as a starting point <https://github.com/freechipsproject/rocket-chip>
- * Remove the lock file
- * Install Ubuntu packages according to riscv-tools and Chisel 3:
-
-```
-sudo apt-get install autoconf automake autotools-dev curl device-tree-compiler libmpc-dev libmpfr-dev libgmp-dev libusb-1.0-0-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev
-```
-
-```
-sudo apt-get install default-jdk
+ * Use VMware Workstation 15 Player
+ * Use Ubuntu 18.04 desktop
+ * Do not use VMware easy install
+ * Do not use LVM
+ * Settings: turn off screen locking
+ 
+Install VM tools for clipboard support and restart VM
+```bash
+sudo apt install open-vm-tools
 ```
 
-```
-echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 642AC823
-sudo apt-get update
-sudo apt-get install sbt
+Install git
+```bash
+sudo apt install git
 ```
 
+Follow the instructions for installing the RISC-V tools [here](https://github.com/riscv/riscv-tools),
+except do not execute 
+```bash
+./build.sh
 ```
-sudo apt-get install git make autoconf g++ flex bison
-```
-
-```
-git clone http://git.veripool.org/git/verilator
-cd verilator
-git pull
-git checkout verilator_3_886
-unset VERILATOR_ROOT # For bash, unsetenv for csh
-autoconf # Create ./configure script
-./configure
-make
-sudo make install
-```
-
-Set RISCV and update your path by adding this into `.profile`
+Instead, change all references in `build-rv32ima.sh` from `rv32ima` to `rv32i`.
+Set the RISCV variable and path by adding this into `.profile`
 (including logout and login to update your environment variables):
-
 ```
 # RISC-V tools
-export RISCV=$HOME/rocket-chip/riscv-tools/local
+export RISCV=$HOME/riscv-tools
 export PATH=$PATH:$RISCV/bin
 ```
-
-Checkout all code:
-
-```
-git clone https://github.com/ucb-bar/rocket-chip.git
-cd rocket-chip
-git submodule update --init
+Then run
+```bash
+./build-rv32ima.sh
 ```
 
-Build the RISC-V tools:
+Create a file `linker.ld` in the $HOME directory containing the following:
 ```
-cd riscv-tools
-git submodule update --init --recursive
-./build.sh
-./build-rv32ima.sh # if you are using RV32
-```
-
-After executing `./build-rv32ima.sh` spikes default is at rv32ima (was 64 bit before).
-VM size increased to 19 GB from 16 GB before 32-bit support.
-
-Danger!!! Be aware that 32 or 64-bit compilation need to be in sync with the spike simulation. 32-bit hello world is:
-
-```
-echo -e '#include <stdio.h>\n int main(void) { printf("Hello world!\\n"); return 0; }' > hello.c
-riscv32-unknown-elf-gcc -o hello hello.c
-spike pk hello
+SECTIONS {
+.text :{*(*)}
+}
 ```
 
-This is than the END of the tiny RISC-V tool intro.
+Download the RISCV pipeline simulator Ripes from [here](https://github.com/mortbopet/Ripes/releases).
+No installation is required, however, enable the file's execute bit to make it executable.
 
-Martin
+## RISC-V Tools on macOS
+
+### Ubuntu on macOS
+
+There is no free VMWaare Player available for macOS. You can buy their
+[VMware Fusion](https://www.vmware.com/products/fusion.html).
+
+An alternative is to use the free VM [VirtualBox](https://www.virtualbox.org/).
+
+We provide: 
+
+ * An Ubuntu VM for VirtualBox  with RISC-V tools installed
+   * [caelab-vb.zip](http://patmos.compute.dtu.dk/caelab-vb.zip)
+   * user: caelab pwd: caelab
+
+
+### Native Installation on macOS
+
+For diverse GNU tools you need a packet manager for those tools under macOS.
+
+[Homebrew](https://brew.sh/) is one of the popular ones. For the packets
+listed in the Ubuntu installation you need to find the related ones for brew/macOS.
+As my (Martin's) Mac has brew already installed, I cannot list all that are
+needed. But if anyone is doing this installation from scratch I would love
+to add this information here.
+
+According to the RISC-V tools README, following Homebrew packages need to be
+installed with following command:
+
+```
+brew install libusb dtc gawk gnu-sed gmp mpfr libmpc isl wget automake md5sha1sum
+```
+
+Then follow the instructions above like the setup on Ubuntu.

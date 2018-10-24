@@ -13,9 +13,9 @@ and all needed tools installed. You need about 18 GB of free disk space for the 
 temporary space of 7 GB for the .zip file
 
  * An Ubuntu VM with RISC-V tools installed
-   * [cae-lab.zip](http://patmos.compute.dtu.dk/cae-lab.zip)
+   * [caelab.zip](http://patmos.compute.dtu.dk/caelab.zip)
    * user: cae-lab pwd: cae-lab
- * Use the free [VMWare Workstation Player](https://my.vmware.com/en/web/vmware/free#desktop_end_user_computing/vmware_workstation_player/12_0)
+ * Use the free [VMWare Workstation Player](https://www.vmware.com/products/workstation-player.html)
 
 ## Basic Linux/Unix Skills
 
@@ -101,8 +101,11 @@ and compile it with
 riscv32-unknown-elf-gcc main.c
 ```
 creates the executable `a.out`. You can run it on the spike simulator
-with `spike pk a.out`. However, as this program does not print any results
-you will not see any output.
+with `spike pk a.out`. As this program does not print any results
+you can get the return value with
+```bash
+echo $?
+```
 
 You can again compile this tiny program to an assembler file with
 the `-S` option.
@@ -143,10 +146,3 @@ riscv32-unknown-elf-objcopy foo.o --dump-section .text=output.bin
 which generated an `output.bin` containing the RISC-V instructions
 in plain binary. You can display a binary file with `hexdump -C output.bin`
 or `xxd output.bin`.
-
-__Warning:__ The VM contains a version of the compiler/linker that does a
-strange 3 byte alignment of the function, which you can see with `objdump`.
-Therefore, when you use this binary for your simulator, you need to discard
-those first three bytes.
-
-See also: https://github.com/riscv/riscv-tools/issues/132

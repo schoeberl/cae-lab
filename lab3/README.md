@@ -1,174 +1,102 @@
 # Lab Session 3
 
-## Introduction to RISC-V ISA and the Venus Simulator
+This lab session continues to use the [Venus RISC-V simulator](https://kvakil.github.io/venus/).
 
-The lab session uses the [Venus RISC-V simulator](https://kvakil.github.io/venus/),
-which can execute in a browser with JavaScript enabled.
-We will explore basic machine instructions on the RISC-V instruction set.
 
-After the lab you will have a good overview of _n_ out of _m_ RISC-V
-instructions (RV32I).
-You will be able to simulate small to medium size programs on a RISC-V
-instruction set simulator.
+### Making Decisions
 
-### A Minimal Assembler Program
-#### (And How to Start Everything Off with Loading Constants)
+Last week you used the `ecall` number 4 to print a string. However, this
+abstracts already some functionality in a form of operating system.
+Assume that you have just a device where you can print out single characters
+(such as a serial device). Use you last Hello World example and print
+your individual character with `ecall` number 11 (see
+[env. calls](https://github.com/kvakil/venus/wiki/Environmental-Calls)).
 
-Start by pasting following [minimal.s](minimal.s) assembler program into Venus,
-in the Editor pane:
-```asm
-# As minimal RISC-V assembler example
-addi x1, x0, 2
-addi x2, x0, 3
-add x3, x1, x2
-```
-Change to the Simulator and step through the code with the `Step` button.
-Watch how the register `x1`, `x2`, and `x3` change. Adding immediate values
-to register `x0`, which is always 0, is one way to load constants (immediate values)
-into registers. Loading immediate values is so basic to get a program started
-that RISC-V defines a pseudo instruction, `li`, as a shortcut.
-Enter following code into the editor and switch to the simulation pane.  
-```asm
-# Use of pseudo instructions to load immediate values
-li x1, 2
-li x2, 3
-add x3, x1, x2
-```
+For this exercise you need branches to form a loop and to loop through
+the characters and make a decision when to exit the loop (at the end of
+the string). How do you know about the end of the string?
+Hint: lookup what `.asciiz` means in the [Venus documentation](https://github.com/kvakil/venus/wiki)
 
-You will notice that your code is listed under _Original Code_, but the
-_real_ RISC-V instructions are listed under _Basic Code_.
-Those instructions are the very same as you entered with [minimal.s](minimal.s).
+### Simple Integer Arithmetic
 
-RISC-V immediate values for ALU operations are 12-bit wide.
-Try to use larger constants in your program (you can also use the 0xabcd
-notion for hexadecimal values). What happens when the constant does
-not fit into sign extended 12 bits?
+You will now explore how the computer can perform integer arithmetic operations.
+In the computer memory, both data and code are represented as numbers.
+The CPU has no way of knowing which numbers are data and which are instructions.
+It is just trying to execute whatever instruction the program courter (PC) is pointing at.
+To solve this problem, data and code are stored separately in different memory areas called code segment and data segment.
+If you want to save something as data, then you have to put the `.data` directive before that line in your assembly code.
+If you want to save something as code, then you have to use the `.text directive.
 
-Lookup the `lui` instruction in the [The RISC-V Instruction Set Manual](https://riscv.org/specifications/).
 
-Why is immediate loading so fundamental?
-
-### Step, Breakpoint, and Run
-
-Extend you program with a handful of more instructions to
-explore the functions of the Venus simulator.
-You can clear the registers and the program counter by pressing _Reset_.
-Step through your program with _Step_ or run you program to completion
-with _Run_.
-
-Another important concept is a breakpoint. You can set a breakpoint by
-clicking into the instruction. A breakpoint is marked by coloring it red.
-Another click into the instruction will clear the breakpoint.
-
-With a breakpoint you can _Run_ he program until it reaches the breakpoint.
-There you might explore some values in the registers.
-
-### Computing with ALU Instructions
-
-A computer can compute. "Of course!", you will say.
-However, how do you compute on a RISC processor?
-
-You compute with just a handful of instructions in the arithmetic logic unit (ALU).
-Operations for ALU instructions are provided in registers and
-the result is put into a register as well.
-
-Locate all integer ALU instructions of RISC-V and explore them in the
-simulator.
-
-### Interlude: Talking to the World
-
-Venus contains a simulation of low level operating system functions.
-The functions in Venus have been inspired by the MIPS simulator MARS,
-which itself has been inspired by SPIM.
-
-System functions in RISC-V are invoked with the `ecall` instruction,
-where `ecall` stands for _environment call_.
-However, the concrete semantics of those functions is operating system
-dependent.
-Arguments to the system function are passed via the normal argument
-register `a0` and `a1`, where `a0` contains the function code.
-Explore [io.s](io.s) to print a integer value.
-You can use this simple print function for `printf` debugging.
-
-### Assembler Directives
-
-Beside instructions in assembler format, an assembler also accepts
-so-called _assembler directives_. The code start is usually marked
-with `.text`. You can initialize data in the data segment with `.data`.
-Each assembler instruction can start with a label such as
-`main`: or `loop:`.
-This label can then be used as destination for a branch instruction.
-Also data can be addressed by using a label. See below some examples:
+Use following code [add.s](add.s):
 
 ```asm
+.data
+aa: .word 5
+bb: .word 7
 .text
 main:
-la a1, hello
-loop: li, x3, 123
-... more code
+lw x1, aa
+lw x2, bb
+add x3, x1, x2
+```
+
+See how the code and the data are saved in the Text  and Data segment.
+Run the example step by step. Observe what real instructions are executed.
+The instruction `lw, x1, aa` is not a native RISC-V instruction.
+It is an assembler pseudo instruction that makes assembler programmers
+live easier. Find out what the `auipc` instruction does.
+
+### Calling Functions
+
+Now that you implemented an addition you find this is a very great thing
+and want to wrap it into a function. Implement a leave function that performs
+addition and call it from your main program with the parameters in the
+correct argument register. Take care that you use the right registers
+according to the calling conventions of RISC-V. If you use saved registers
+save them on the stack.
+
+Note that the syntax of the `jalr` instruction for returning from a function
+in Venus is a little bit different: `jalr x0, x1, 0`
+
+
+### A Non-Leave Function
+
+Non-leave functions need to perform a little bit more work on function entry
+and return.
+You will explore a non-leave function by implementing the factorial function
+as a recursive function in RISC-V assembly.
+
+See the following code for factorial in C:
+
+
+```C
+int fact (int n){   if (n < 1) return 1;  else return n * fact(n - 1);}
+```
+
+Use following template [fact.s](fact.s) as a starting point and substitute
+the instruction `li a0, 15 # dummy return value` by your implementation of
+factorial.
+
+```asm
 .data
-hello:
-.asciiz "Hello"
+n: .word 3
+
+.text
+main:
+la t0, n
+lw a0, 0(t0)
+jal ra, factorial
+   
+addi a1, a0, 0
+addi a0, x0, 1
+ecall # print pesult
+
+addi a0, x0, 10
+ecall # exit
+
+factorial:
+# put your solution here
+li a0, 15 # dummy return value
+jalr x0,0(x1) # return
 ```
-
-Add a `main:` label to the start of your program and add following
-instruction at the end of your program:
-
-```
-j main
-```
-
-What happens when you step through your code? What happens when
-you press _Run_?
-
-### A RISC Machine is also Called a Load/Store Architecture
-
-Operands for ALU instructions are always taken from registers and
-the result is also put into registers in a RISC machine.
-How can we then take operands from the memory or write results
-into memory?
-
-We need to use load and store instructions. That's why a RISC machine
-is also called a load/store architecture.
-
-Use a store instruction to store `0xdeadbeef` into the memory.
-The simulator can display memory. Click on the _Memory_ field,
-scroll down and _Jump to_ _Data_. The simulator choses to start
-the data segment at `0x1000000`. Now write into that location
-the `0xdeadbeef`.
-
-How do you get that address into a register at first place?
-Remember immediate values?
-
-After storing that value into the main memory also read it back
-into a register.
-
-### We can Say Hello World to the World
-
-As a final exercise we will say "Hello World".
-
-A list of implemented `ecall` functions can be found in the
-[env. calls](https://github.com/kvakil/venus/wiki/Environmental-Calls)
-section in the
-[Venus documentation](https://github.com/kvakil/venus/wiki).
-
-You can print strings that are allocated in the static data segment.
-Explore [hello.s](hello.s).
-
-### Final Questions
-
-To summarize the lab try to answer the following questions:
-
-* Can the computer execute an assembly instruction? 
-* How does the computer know that a bit pattern is an instruction?
-* How many bytes are used to store one instruction? 
-* How can the computer jump to a symbolic label, such as it
-occurs in the instruction `j main`? 
-* Which registers are affected by a jump instruction?
- 
-  
-
-
-
-
-
