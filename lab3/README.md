@@ -43,7 +43,7 @@ add x3, x1, x2
 
 See how the code and the data are saved in the Text  and Data segment.
 Run the example step by step. Observe what real instructions are executed.
-The instruction `lw, x1, aa` is not a native RISC-V instruction.
+The instruction `lw x1, aa` is not a native RISC-V instruction.
 It is an assembler pseudo instruction that makes assembler programmers
 live easier. Find out what the `auipc` instruction does.
 
@@ -71,7 +71,11 @@ See the following code for factorial in C:
 
 
 ```C
-int fact (int n){   if (n < 1) return 1;  else return n * fact(n - 1);}
+int fact (int n)
+{ 
+  if (n < 1) return 1;
+  else return n * fact(n - 1);
+}
 ```
 
 Use following template [fact.s](fact.s) as a starting point and substitute
