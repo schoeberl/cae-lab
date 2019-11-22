@@ -53,9 +53,7 @@ In this task you will start programming your simulator with support of basic RIS
 In this task you will extend your simulator by adding a program counter (PC) to support branch instructions. Furthermore, you will add all the base branching instructions, i.e., in case a branch should be taken your simulator must update the PC according to the instruction.
 
 ### Task 3
-
-Within task 3 you will add support for function calls and load and store instructions. Have a strategy how you will handle (initialize) the stack pointer (SP).
-
+Within task 3 you will add support for function calls and load and store instructions. The stack pointer (SP) shall be initialized by the program. In the example code it is set to 1 MB, therefore provide 1 MB of memory in your simulator.
 
 ## Testing
 
