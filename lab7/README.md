@@ -102,12 +102,21 @@ which simulates startup code (usually called ```_start```):
 // This is our minimal startup code (usually in _start)
 asm("li sp, 0x100000"); // SP set to 1 MB
 asm("jal main");        // call main
-asm("mv a1, x10");      // save return value in a1
+asm("mv a1, a0");       // save return value in a1
 asm("li a0, 10");       // prepare ecall exit
-asm("ecall");           // now your simlator should stop
+asm("ecall");           // now your simulator should stop
 ```
 
-You can now compile your c program to an executable using
+You can now compile your c program to an executable using following linker
+script ```linker.ld``` (already placed in your home folder in the VM):
+```
+SECTIONS {
+.text :{*(*)}
+}
+```
+
+Compile with following options:
+
 ```bash
 riscv32-unknown-elf-gcc -nostartfiles -march=rv32i -mabi=ilp32 -Wl,--script=$HOME/linker.ld foo.c -o foo.out
 ```
@@ -117,6 +126,6 @@ riscv32-unknown-elf-objcopy foo.out --dump-section .text=foo.bin
 ```
 
 Try writing your own simple c program where you add some numbers and return the
-result. see how it executes in Ripes. Can you see your result? 
+result. sSee how it executes in Ripes. Can you see your result? 
 Try expanding the program by moving the calculations to
-a separate method which is called by the `main`.
+a separate function which is called by the `main`.
