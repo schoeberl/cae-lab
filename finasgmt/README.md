@@ -22,6 +22,10 @@ For debugging it will also be a good idea to write out the register contents aft
 
 You are *NOT* required to simulate the pipeline stages.
 
+### Alternative: a Real Processor implementation
+
+If you have some hardware design experience (e.g., Digital Electronics 2), you might be curious if you can do the real thing, a hardware implementation of the RISC-V. Yes, you can! A hardware implementation counts as well as a possible simulation of a RISC-V. However, be aware that this is a lot more work than a simple ISA simulator. I (Martin) can give you some help, but the TA probably not. You are more on your own.
+
 ### Input
 
 The binary input files contain the programs to be executed. Each instruction is 32 bits, so you read and store them as Java (or similar) ints in your program. Bit shifting the integer and AND'ing with a bit mask will give you the required fields of the instruction, such as the opcode and the RD.
@@ -63,6 +67,6 @@ We have provided test programs that you can execute with simulator and then comp
 
 For this assignment you will be working in groups of 1-2. You will not receive extra credits by doing all the work by yourself, so there is no benefit in working alone.
 
-Similar to the other assignments, you have to hand in a report using the front page specified in assignment 1. The report should contain an introduction, a description of the design and implementaton of your simulator, and some discussion of your design.
+Similar to the other assignments, you have to hand in a report using the front page specified in assignment 1. The report should contain an introduction, a description of the design and implementation of your simulator, and some discussion of your design.
 
 In addition to the report, you should hand in your simulator source code that can be compiled and executed on Ubuntu. You only have to hand in one set of source code, i.e., not one for each stage in the tasks. These additional deliverables should be uploaded as a single zip file. Furthermore, you need to demonstrate your simulator to a TA.
