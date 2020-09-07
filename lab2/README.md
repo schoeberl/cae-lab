@@ -134,7 +134,7 @@ is also called a load/store architecture.
 Use a store instruction to store `0xdeadbeef` into the memory.
 The simulator can display memory. Click on the _Memory_ field,
 scroll down and _Jump to_ _Data_. The simulator choses to start
-the data segment at `0x1000000`. Now write into that location
+the data segment at `0x10000000`. Now write into that location
 the `0xdeadbeef`.
 
 How do you get that address into a register at first place?
