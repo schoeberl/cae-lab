@@ -1,4 +1,4 @@
-# Lab Session 7
+# Lab Session 6
 
 During this lab session you will explore [Ripes](https://github.com/mortbopet/Ripes), 
 a graphical 5-stage processor pipeline simulator.
