@@ -26,10 +26,9 @@ For lab sessions where no link is given, we will provide the material in CampusN
  * week 1: Number representation and performance
  * week 2: [Lab 2](lab2)
  * week 3: [Lab 3](lab3)
- * week 4: Exercises from Chapter 3
- * week 5: work on first assignment
+ * week 4: work on first assignment
+ * week 5: [Lab 5](lab5)
  * week 6: [Lab 6](lab6)
- * week 7: [Lab 7](lab7)
 
 ## Resources
 
