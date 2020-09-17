@@ -22,10 +22,10 @@ Hint: lookup what `.asciiz` means in the [Venus documentation](https://github.co
 You will now explore how the computer can perform integer arithmetic operations.
 In the computer memory, both data and code are represented as numbers.
 The CPU has no way of knowing which numbers are data and which are instructions.
-It is just trying to execute whatever instruction the program courter (PC) is pointing at.
+It is just trying to execute whatever instruction the program counter (PC) is pointing at.
 To solve this problem, data and code are stored separately in different memory areas called code segment and data segment.
 If you want to save something as data, then you have to put the `.data` directive before that line in your assembly code.
-If you want to save something as code, then you have to use the `.text directive.
+If you want to save something as code, then you have to use the `.text` directive.
 
 
 Use following code [add.s](add.s):
