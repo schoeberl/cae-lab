@@ -116,13 +116,12 @@ SECTIONS {
 ```
 
 Compile with following options:
-
 ```bash
-riscv32-unknown-elf-gcc -nostartfiles -march=rv32i -mabi=ilp32 -Wl,--script=$HOME/linker.ld foo.c -o foo.out
+riscv64-linux-gnu-gcc -nostartfiles -nostdlib -march=rv32i -mabi=ilp32 -T $HOME/linker.ld foo.c -o foo.out
 ```
 Extract the `.text` segment as before using
 ```bash
-riscv32-unknown-elf-objcopy foo.out --dump-section .text=foo.bin
+riscv64-linux-gnu-objcopy foo.out --dump-section .text=foo.bin
 ```
 
 Try writing your own simple c program where you add some numbers and return the
