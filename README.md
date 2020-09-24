@@ -124,7 +124,28 @@ Install git
 sudo apt install git
 ```
 
-Install the RISC-V compiler
+### Install the RISC-V compiler 32-bit version (riscv32)
+
+Follow the instructions for installing the RISC-V tools [here](https://github.com/riscv/riscv-tools),
+except do not execute 
+```bash
+./build.sh
+```
+Instead, change all references in `build-rv32ima.sh` from `rv32ima` to `rv32i`.
+Set the RISCV variable and path by adding this into `.profile`
+(including logout and login to update your environment variables):
+```
+# RISC-V tools
+export RISCV=$HOME/riscv-tools
+export PATH=$PATH:$RISCV/bin
+```
+Then run
+```bash
+./build-rv32ima.sh
+```
+
+### Install the RISC-V compiler 32/64-bit version (riscv64)
+
 ```bash
 sudo apt install gcc-riscv64-linux-gnu
 ```
