@@ -150,6 +150,8 @@ Then run
 sudo apt install gcc-riscv64-linux-gnu
 ```
 
+### Linker file
+
 Create a file `linker.ld` in the $HOME directory containing the following:
 ```
 SECTIONS {
