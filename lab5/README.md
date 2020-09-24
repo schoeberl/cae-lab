@@ -13,7 +13,7 @@ and all needed tools installed. You need about 18 GB of free disk space for the 
 temporary space of 7 GB for the .zip file
 
  * An Ubuntu VM with RISC-V tools installed
-   * [caelab.zip](http://patmos.compute.dtu.dk/caelab.zip)
+   * [caelab.zip](https://patmos-download.compute.dtu.dk/caelab.zip)
    * user: cae-lab pwd: cae-lab
  * Use the free [VMWare Workstation Player](https://www.vmware.com/products/workstation-player.html)
 
