@@ -11,6 +11,7 @@ class SingleCycleRiscV extends Module {
     val done = Output(Bool())
   })
 
+
   io.done := true.B
 
 }
