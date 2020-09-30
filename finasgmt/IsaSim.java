@@ -28,7 +28,7 @@ public class IsaSim {
 
 		for (;;) {
 
-			int instr = progr[pc];
+			int instr = progr[pc>>2];
 			int opcode = instr & 0x7f;
 			int rd = (instr >> 7) & 0x01f;
 			int rs1 = (instr >> 15) & 0x01f;
@@ -44,8 +44,8 @@ public class IsaSim {
 				break;
 			}
 
-			++pc; // We count in 4 byte words
-			if (pc >= progr.length) {
+			pc += 4; // One instruction is four bytes
+			if ((pc >> 2) >= progr.length) {
 				break;
 			}
 			for (int i = 0; i < reg.length; ++i) {
