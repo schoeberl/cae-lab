@@ -4,7 +4,18 @@ import org.scalatest._
 
 class SingleCycleRiscVTester(dut: SingleCycleRiscV) extends PeekPokeTester(dut) {
 
-  step(2)
+  def printReg() = {
+    for (i <- 0 until 4) {
+      print(peek(dut.io.regDeb(i)).toString + " ")
+    }
+    println()
+  }
+
+
+  for (i <- 0 until 3) {
+    printReg()
+    step(1)
+  }
 }
 
 class RiscVSpec extends FlatSpec with Matchers {
