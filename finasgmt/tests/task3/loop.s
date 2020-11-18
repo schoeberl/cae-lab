@@ -1,9 +1,8 @@
 	li sp, 0x100000
 	jal main
-	mv a1, x10
+	mv a1, a0
 	li a0, 10
 	ecall
-	.text
 sum:
 	addi	sp,sp,-48
 	sw	s0,44(sp)
@@ -92,7 +91,7 @@ main:
 	lw	a5,-32(s0)
 	lw	a1,-24(s0)
 	mv	a0,a5
-	call	sum
+	jal ra, sum
 	sw	a0,-36(s0)
 	mv	sp,s1
 	nop
