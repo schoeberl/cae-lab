@@ -17,6 +17,6 @@ e:
 	li a0,1
 	li a1,2
 f:
-	mv	a2,a0
-	li	a0,10
+	mv a2,a0
+	li a0,10
 	ecall

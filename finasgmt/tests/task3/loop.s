@@ -1,7 +1,8 @@
-	li sp, 0x100000
+	.text
+	li sp,0x100000
 	jal main
-	mv a1, a0
-	li a0, 10
+	mv a1,a0
+	li a0,10
 	ecall
 sum:
 	addi	sp,sp,-48
