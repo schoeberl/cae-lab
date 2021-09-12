@@ -50,7 +50,7 @@ live easier. Find out what the `auipc` instruction does.
 ### Calling Functions
 
 Now that you implemented an addition you find this is a very great thing
-and want to wrap it into a function. Implement a leave function that performs
+and want to wrap it into a function. Implement a leaf function that performs
 addition and call it from your main program with the parameters in the
 correct argument register. Take care that you use the right registers
 according to the calling conventions of RISC-V. If you use saved registers
@@ -60,11 +60,11 @@ Note that the syntax of the `jalr` instruction for returning from a function
 in Venus is a little bit different: `jalr x0, x1, 0`
 
 
-### A Non-Leave Function
+### A Non-Leaf Function
 
-Non-leave functions need to perform a little bit more work on function entry
+Non-leaf functions need to perform a little bit more work on function entry
 and return.
-You will explore a non-leave function by implementing the factorial function
+You will explore a non-leaf function by implementing the factorial function
 as a recursive function in RISC-V assembly.
 
 See the following code for factorial in C:
