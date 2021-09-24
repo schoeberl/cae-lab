@@ -27,8 +27,9 @@ For lab sessions where no link is given, we will provide the material in CampusN
  * week 2: [Lab 2](lab2)
  * week 3: [Lab 3](lab3)
  * week 4: paper and pencil
- * week 5: [Lab 5](lab5)
+ * week 5: assignment
  * week 6: [Lab 6](lab6)
+ * week 7: [Lab 7](lab7)
 
 ## Resources
 
