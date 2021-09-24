@@ -1,4 +1,4 @@
-# Lab Session 5
+# Lab Session 6
 
 During this lab session you will install and explore the official RISC-V
 tools.
