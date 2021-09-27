@@ -191,3 +191,6 @@ brew install libusb dtc gawk gnu-sed gmp mpfr libmpc isl wget automake md5sha1su
 ```
 
 Then follow the instructions above like the setup on Ubuntu.
+
+the RISC-V compiler is also available as a brew package, see
+[here](https://github.com/riscv-software-src/homebrew-riscv).
