@@ -1,11 +1,11 @@
 	.text
-	li t0,1
-	li a1,0xABCDEFAB
-	sll a2,a1,t0
-	srl a3,a1,t0
-	sra a4,a1,t0
-	slli a5,a1,3
-	srli a6,a1,3
-	srai a7,a1,3
-	li a0,10
+	li t0, 1
+	li a0, 0xABCDEFAB
+	sll a1, a0, t0
+	srl a2, a0, t0
+	sra a3, a0, t0
+	slli a4, a0, 3
+	srli a5, a0, 3
+	srai a6, a0, 3
+	li a7, 10
 	ecall

@@ -102,8 +102,7 @@ which simulates startup code (usually called ```_start```):
 // This is our minimal startup code (usually in _start)
 asm("li sp, 0x100000"); // SP set to 1 MB
 asm("jal main");        // call main
-asm("mv a1, a0");       // save return value in a1
-asm("li a0, 10");       // prepare ecall exit
+asm("li a7, 10");       // prepare ecall exit
 asm("ecall");           // now your simulator should stop
 ```
 
@@ -121,7 +120,7 @@ riscv64-linux-gnu-gcc -nostartfiles -nostdlib -march=rv32i -mabi=ilp32 -T $HOME/
 ```
 Extract the `.text` segment as before using
 ```bash
-riscv64-linux-gnu-objcopy foo.out --dump-section .text=foo.bin
+riscv64-linux-gnu-objcopy -O binary foo.out foo.bin
 ```
 
 Try writing your own simple c program where you add some numbers and return the

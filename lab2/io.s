@@ -3,7 +3,8 @@
 #  = poor man's debugger
 #
 
-addi a0, zero, 1  # function for integer print
-addi a1, zero, 42 # the integer value to print
+.text
+addi a7, zero, 1  # function for integer print
+addi a0, zero, 42 # the integer value to print
 ecall             # call the environment for printing
 

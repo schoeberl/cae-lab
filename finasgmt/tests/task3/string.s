@@ -33,8 +33,6 @@ data:
 	addi a0, a0, 1
 	lb x16, 0(a0)
 	addi a0, a0, 1
-	lb x17, 0(a0)
-	addi a0, a0, 1
 	lb x18, 0(a0)
 	addi a0, a0, 1
 	lb x19, 0(a0)
@@ -62,5 +60,5 @@ data:
 	lb x30, 0(a0)
 	addi a0, a0, 1
 	lb x31, 0(a0)
-	addi a0,x0,10
+	li a7, 10
 	ecall

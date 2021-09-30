@@ -4,8 +4,8 @@
 
 .text
 la a1, hello
-li a0, 4
+li a7, 4
 ecall
 .data
 hello:
-.asciiz "Hello World"
+.asciz "Hello World"
