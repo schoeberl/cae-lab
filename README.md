@@ -40,41 +40,59 @@ Venus executes in your browser and there is no need to install any tools
 on your laptop. You can also save that web page to have a local copy of
 the simulator to work when offline.
 
-### RISC-V C Compiler and Spike
+### RISC-V Advanced Simulator
 
-However, for later lab exercises and your final project we need the full RISC-V toolchain, including a port of gcc and the `spike` simulator.
+For later labs we will use the RISCV pipeline simulator Ripes.
+Download it from [here](https://github.com/mortbopet/Ripes/releases).
+No installation is required, however, enable the file's execute bit to make it executable.
 
-If you are using Ubuntu (or any other Linux version) or a Mac OS X laptop, you can install the tools
-natively on your machine. However, to simplify life we provide a virtual machine (VM) with Ubuntu
-and all needed tools installed. You need about 18 GB of free disk space for the VM and another
-temporary space of 7 GB for the .zip file
+### RISC-V Tools
 
- * An Ubuntu VM with RISC-V tools installed
-   * [caelab.zip](https://patmos-download.compute.dtu.dk/caelab.zip)
-   * user: caelab pwd: caelab
- * Use the free [VMWare Workstation Player](https://www.vmware.com/products/workstation-player.html)
+For later lab exercises and your final project we need the full RISC-V toolchain, including a port of gcc.
+
+#### Ubuntu (Linux)
+
+Install the tools by running the following command in the terminal:
+```bash
+sudo apt install gcc-riscv64-linux-gnu
+```
+
+#### Windows
+
+The same commands that are used for Ubuntu can be used under Windows
+by using the Windows Subsystem for Linux (WSL).
+Activate it and install Ubuntu by following the guide
+[here](https://ubuntu.com/tutorials/ubuntu-on-windows#1-overview).
+
+Now follow the instructions for Ubuntu above. 
+
+#### macOS
+
+Under macOS you need a packet manager.
+[Homebrew](https://brew.sh/) is one of the popular ones.
+After installing homebrew, install the RISC-V tool bew package from
+[here](https://github.com/riscv-software-src/homebrew-riscv).
+
+#### Linker file
+
+We need a linker file when compiling bare metal programs, particularly
+for the final project. Create it in the $HOME directory by running the following command:
+```
+echo -e 'SECTIONS {\n.text :{*(*)}\n}' > $HOME/linker.ld
+```
 
 Test the VM by opening a terminal and starting the compiler with:
 ```
-riscv32-unknown-elf-gcc
+riscv64-linux-gnu-gcc
 ```
 
 You should get an error, similar to following
 ```
-riscv32-unknown-elf-gcc: fatal error: no input files
+riscv64-linux-gnu-gcc: fatal error: no input files
 compilation terminated.
 ```
 which is good as you know the the compiler is installed.
 You are now prepared for all RISC-V based lab work and projects.
-
-
-For the more curious, you can sneak ahead and compile and run 
-_Hello World_ program on RISC-V `spike` as follows:
-```
-echo -e '#include <stdio.h>\n int main(void) { printf("Hello world!\\n"); return 0; }' > hello.c
-riscv32-unknown-elf-gcc -o hello hello.c
-spike pk hello
-```
 
 ## Links
 
@@ -100,97 +118,3 @@ spike pk hello
  * [Assembler appendix from H&P](http://pages.cs.wisc.edu/~larus/HP_AppA.pdf)
  * [MARS docu](http://courses.missouristate.edu/KenVollmar/mars/CCSC-CP%20material/MARS%20Tutorial.doc)
  * [CS61C summer lab 3](http://www-inst.eecs.berkeley.edu/~cs61c/su17/labs/03/)
-
-## VM and Tool Installation
-
-This is a log how I prepared the Ubuntu VM for the CAE lab. It might be useful for your own installation of the RISC-V tools.
-
-_Please note that this is a log on how I prepared the Ubuntu VM for the CAE lab.
-This instructions might be out of date soon. Please refer to the original README
-documents of the RISC-V tools._
-
- * Use VMware Workstation 15 Player
- * Use Ubuntu 18.04 desktop
- * Do not use VMware easy install
- * Do not use LVM
- * Settings: turn off screen locking
- 
-Install VM tools for clipboard support and restart VM
-```bash
-sudo apt install open-vm-tools
-```
-
-Install git
-```bash
-sudo apt install git
-```
-
-### Install the RISC-V compiler 32-bit version (riscv32)
-
-Follow the instructions for installing the RISC-V tools [here](https://github.com/riscv/riscv-tools),
-except do not execute 
-```bash
-./build.sh
-```
-Instead, change all references in `build-rv32ima.sh` from `rv32ima` to `rv32i`.
-Set the RISCV variable and path by adding this into `.profile`
-(including logout and login to update your environment variables):
-```
-# RISC-V tools
-export RISCV=$HOME/riscv-tools
-export PATH=$PATH:$RISCV/bin
-```
-Then run
-```bash
-./build-rv32ima.sh
-```
-
-### Install the RISC-V compiler 32/64-bit version (riscv64)
-
-```bash
-sudo apt install gcc-riscv64-linux-gnu
-```
-
-### Linker file
-
-Create a file `linker.ld` in the $HOME directory containing the following:
-```
-SECTIONS {
-.text :{*(*)}
-}
-```
-
-Download the RISCV pipeline simulator Ripes from [here](https://github.com/mortbopet/Ripes/releases).
-No installation is required, however, enable the file's execute bit to make it executable.
-
-## RISC-V Tools on macOS
-
-### Ubuntu on macOS
-
-There is no free VMWaare Player available for macOS. You can buy their
-[VMware Fusion](https://www.vmware.com/products/fusion.html).
-
-An alternative is to use the free VM [VirtualBox](https://www.virtualbox.org/).
-
-
-### Native Installation on macOS
-
-For diverse GNU tools you need a packet manager for those tools under macOS.
-
-[Homebrew](https://brew.sh/) is one of the popular ones. For the packets
-listed in the Ubuntu installation you need to find the related ones for brew/macOS.
-As my (Martin's) Mac has brew already installed, I cannot list all that are
-needed. But if anyone is doing this installation from scratch I would love
-to add this information here.
-
-According to the RISC-V tools README, following Homebrew packages need to be
-installed with following command:
-
-```
-brew install libusb dtc gawk gnu-sed gmp mpfr libmpc isl wget automake md5sha1sum
-```
-
-Then follow the instructions above like the setup on Ubuntu.
-
-the RISC-V compiler is also available as a brew package, see
-[here](https://github.com/riscv-software-src/homebrew-riscv).
