@@ -2,22 +2,12 @@
 
 During this lab session you will install and explore the official RISC-V tools. You will also be exploring [Ripes](https://github.com/mortbopet/ripes), a graphical RISC-V simulator.
 
-## RISC-V C Compiler and Spike
+## RISC-V C Compiler and Ripes
 
-In this lab you will explore the full RISC-V toolchain, including a port of `gcc` and the `spike` simulator.
+In this lab you will explore the full RISC-V toolchain, including a port of `gcc`,
+and the RISC-V simulator Ripes.
 
-If you are using Ubuntu (or any other Linux version) or a Mac OS X laptop, you can install the tools
-natively on your machine. However, to simplify life we provide a virtual machine (VM) with Ubuntu
-and all needed tools installed. You need about 18 GB of free disk space for the VM and another
-temporary space of 7 GB for the .zip file
-
- * An Ubuntu VM with RISC-V tools installed
-   * [caelab.zip](https://patmos-download.compute.dtu.dk/caelab.zip)
-   * user: cae-lab pwd: cae-lab
- * Use the free [VMWare Workstation Player](https://www.vmware.com/products/workstation-player.html)
- * Before launching the VM for the first time, ensure that enough RAM has been allocated to it. At least 2GB should be allocated, preferably +4GB.
-
- If you wish to install the RISC-V toolchain on your own computer, you can either download the [official toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain) or the [SiFive version](https://github.com/sifive/freedom-tools). See the respective GitHub repositories for installation instructions. If you are not used to working in the command line, we recommend using the provided VM.
+Follow the instructions for installing the tools [here](../)
 
 ## Basic Linux/Unix Skills
 
@@ -37,29 +27,6 @@ You also need an editor, `gedit` is one of the easier ones to use.
 For further Unix/Linux learning you can use following free book:
 [Ten Steps to Linux Survival](http://www.oreilly.com/programming/free/files/ten-steps-to-linux-survival.pdf)
 
-## Test the Compiler
-
-Test the VM by opening a terminal and starting the compiler with:
-```
-riscv32-unknown-elf-gcc
-```
-
-You should get an error, similar to following
-```
-riscv32-unknown-elf-gcc: fatal error: no input files
-compilation terminated.
-```
-which is good as you know the the compiler is installed.
-You are now prepared for all RISC-V based lab work and projects.
-
-
-Write, compile, and run the _Hello World_ program on RISC-V `spike`, the official RISC-V simulator, as follows:
-```
-echo -e '#include <stdio.h>\n int main(void) { printf("Hello world!\\n"); return 0; }' > hello.c
-riscv32-unknown-elf-gcc -o hello hello.c
-spike pk hello
-```
-
 ## Exploring Compiled C Code
 
 We will now explore very small C functions, such as
@@ -71,7 +38,7 @@ int foo(int a, int b) {
 ```
 Copy the above into a new file, and save it as `foo.c`. Then compile it with the RISC-V compiler using the below command.
 ```bash
-riscv32-unknown-elf-gcc -S foo.c -o foo.s
+riscv64-linux-gnu-gcc -march=rv32i -mabi=ilp32 -S foo.c -o foo.s
 ```
 This generates a file named `foo.s` containing the corresponding assembly for your C program. Explore the assembler output in `foo.s`.
 
@@ -97,26 +64,19 @@ int main() {
 
 Compile it with
 ```bash
-riscv32-unknown-elf-gcc -o main.out main.c
+riscv64-linux-gnu-gcc main.c -o main.out
 ```
-This creates the executable file `main.out`. You can run it on the spike simulator
-with `spike pk main.out`.
-
-Notice that running this program does not generate any output, as we didn't print the value of `a+b`. You can get the return value from a program by running
-```bash
-echo $?
-```
-on the terminal.
+This creates the executable file `main.out`.
 
 Remember that you can always compile a program into an assembly file with the `-S` option.
 Another option to explore a compiled program is with an object dump:
 ```bash
-riscv32-unknown-elf-objdump -d a.out
+riscv64-linux-gnu-objdump -d main.out
 ```
 This will give you a long output as a lot of library code is linked
 into the final program. To make it easier to navigate the output, you can use the operator `>` to redirect the output into a file.
 ```bash
-riscv32-unknown-elf-objdump -d a.out > dump.txt
+riscv64-linux-gnu-objdump -d main.out > dump.txt
 ```
 
 Open this file with an editor (e.g., `gedit dump.txt`) and try to find the `main` function.
@@ -137,25 +97,16 @@ For the above program to run correctly, you must select the value to load into a
 Go back to the Processor tab and run the program, either by stepping through it `>`, or by running all instructions `>>`.
 What is happening? Do you see the output in the console?
 
-### Using Ripes to run C-code
-Ripes also supports compiling C-code into RISC-V assembly and simulating the programs directly in Ripes. Go back to the Editor tab, set the Input type to C-code, paste in the following program
+### Using Ripes to execute a program
+Ripes also supports executing a program compiled with the RISC-V compiler, either from an ELF file
+or as a flat binary. The latter format is what you will use for your final project.
+
+Create a `hello.c` file containing the following code:
 ```C
-#include <stdio.h>
-int main() {
-  printf("Hello, world");
-  return 0;
-}
-```
-
-and compile it by pressing the hammer icon or pressing `ctrl+B`. Look at the generated assembly - that's a lot of instructions to print a single line of text!
-
-If you are unable to paste in or compile the program, open the Settings menu (`Edit -> Settings`) and select the Compiler tab. Ensure that the following options are used:
-* Compiler path: `/home/caelab/riscv/bin/riscv32-unknown-elf-gcc`
-* Compiler arguments: `-O0`
-* Linker arguments: `-static-libgcc -lm`
-
-Running the above program will take a long time on Ripes. We can speed up execution by using environment calls instead. Paste in the following program instead
-```C
+asm("li sp, 0x100000"); // SP set to 1 MB
+asm("jal main");        // call main
+asm("li a7, 10");       // prepare ecall exit
+asm("ecall");           // now your simulator should stop
 void prints(volatile char* ptr);
 
 void main() {
@@ -168,10 +119,18 @@ void prints(volatile char* ptr){ // ptr is passed through register a0
   asm("ecall");
 }
 ```
-
-Notice that we can include assembly instructions directly in our C code. Compiling this code, you will see that the generated program is smaller. Running this on the simulator, the output "Hello, world" should be printed in the console after a couple of seconds.
-
-To run a "bare-metal" version of the above program, you can update the Compiler arguments to include `-nostdlib`. This will strip out all C standard-library related calls, further reducing program size.
+Compile it by executing
+```bash
+riscv64-linux-gnu-gcc -nostartfiles -nostdlib -march=rv32i -mabi=ilp32 -T $HOME/linker.ld hello.c -o hello.out
+```
+and then extract the program by executing
+```bash
+riscv64-linux-gnu-objcopy -O binary hello.out hello.bin
+```
+Now load the program in Ripes as a `Flat binary`. Note, that there are a lot of unknown instructions
+listed in the Editor window. These may be strings, constants and comments from the ELF file.
+Run the program and notice how `Hello world` is printed in the console. Also notice how the program
+never executes any of the strings, simply based on the execution flow.
 
 Take your `factorial` program from Lab 3, and adapt it to print the result of the `factorial` subroutine every time it is finished. Remember to use the correct environment calls to run it on Ripes. 
 
@@ -182,18 +141,18 @@ use an assembler (or even some C code) to write your test cases.
 
 As an example compile your function `foo.s` to an object file with
 ```bash
-riscv32-unknown-elf-gcc -c foo.s -o foo.o
+riscv64-linux-gnu-gcc -march=rv32i -mabi=ilp32 -c foo.s -o foo.o
 ```
 You can explore this object file (`foo.o`) with `objdump` to get
 the instructions in hexadecimal display.
 ```
-riscv32-unknown-elf-objdump -d foo.o
+riscv64-linux-gnu-objdump -d foo.o
 ```
 
 However, what you really interested in is the `.text` segment part
 of the ELF file. With `objcopy` you can extract that part.
 ```bash
-riscv32-unknown-elf-objcopy foo.o --dump-section .text=output.bin
+riscv64-linux-gnu-objcopy -O binary foo.o output.bin
 ```
 which generates a file `output.bin` containing the RISC-V instructions
 in plain binary. You can display a binary file with `hexdump -C output.bin`

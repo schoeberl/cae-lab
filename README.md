@@ -81,7 +81,7 @@ for the final project. Create it in the $HOME directory by running the following
 echo -e 'SECTIONS {\n.text :{*(*)}\n}' > $HOME/linker.ld
 ```
 
-Test the VM by opening a terminal and starting the compiler with:
+Test the installation by opening a terminal and starting the compiler with:
 ```
 riscv64-linux-gnu-gcc
 ```
