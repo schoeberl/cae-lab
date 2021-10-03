@@ -3,9 +3,8 @@
 During this lab session you will explore [Ripes](https://github.com/mortbopet/Ripes), 
 a graphical 5-stage processor pipeline simulator.
 
-Ripes is already installed in the Home directory on the Ubuntu VM. However, you might want to
-download the latest version from [here](https://github.com/mortbopet/Ripes/releases).
-Start Ripes by double clicking the AppImage file.
+Download the latest version of Ripes from [here](https://github.com/mortbopet/Ripes/releases).
+Start Ripes by double clicking the AppImage/.exe file.
 
 ## Exploring Ripes 
 
@@ -107,7 +106,7 @@ asm("ecall");           // now your simulator should stop
 ```
 
 You can now compile your c program to an executable using following linker
-script ```linker.ld``` (already placed in your home folder in the VM):
+script ```linker.ld``` (should already be in your $HOME directory):
 ```
 SECTIONS {
 .text :{*(*)}
@@ -124,6 +123,6 @@ riscv64-linux-gnu-objcopy -O binary foo.out foo.bin
 ```
 
 Try writing your own simple c program where you add some numbers and return the
-result. sSee how it executes in Ripes. Can you see your result? 
+result. See how it executes in Ripes. Can you see your result? 
 Try expanding the program by moving the calculations to
-a separate function which is called by the `main`.
+a separate function which is called by `main`.
