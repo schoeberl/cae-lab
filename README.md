@@ -48,7 +48,7 @@ No installation is required, however, enable the file's execute bit to make it e
 
 ### RISC-V Tools
 
-For later lab exercises and your final project we need the full RISC-V toolchain, including a port of gcc.
+For later lab exercises and your final project we need the full RISC-V toolchain, including a port of gcc. You can either install the toolchain using the instructions below, or you can download prebuilt binaries of all necessary tools from SiFive's Freedom Tools. Note that you must use the [August 2020 version](https://github.com/sifive/freedom-tools/releases/tag/v2020.08.0). Download the riscv64-unknown-elf-gcc version suited for your OS. 
 
 #### Ubuntu (Linux)
 
