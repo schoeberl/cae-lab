@@ -7,12 +7,19 @@ During this lab session you will install and explore the official RISC-V tools. 
 In this lab you will explore the full RISC-V toolchain, including a port of `gcc`,
 and the RISC-V simulator Ripes.
 
-Follow the instructions for installing the tools [here](https://github.com/schoeberl/cae-lab)
+Follow the instructions for installing the tools [here](https://github.com/schoeberl/cae-lab#risc-v-tools)
 
-Note that the name of the compiler and tools on macOS will be slightly different:
+Note that the name of the compiler and tools depends on whether you're on Linux or macOS/Windows, and whether you're using the prebuilt binaries or you compiled the toolchain from source yourself. If you compiled the toolchain yourself under Linux or WSL, you need to use 
 ```
-riscv64-unknown-elf-gcc
+riscv64-linux-gnu-<tool>
 ```
+whereas if you're running on macOS or using the prebuilt binaries, you should use
+```
+riscv64-unknown-elf-<tool>
+```
+where `<tool>` is the specific tool that you wish to use (`gcc`, `objdump`, `objcopy` etc). 
+
+In all examples below, `riscv64-linux-gnu` is used. Replace the correct sections of all commands if you're using the `riscv64-unknown-elf` versions.
 
 ## Basic Linux/Unix Skills
 
