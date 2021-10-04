@@ -9,6 +9,11 @@ and the RISC-V simulator Ripes.
 
 Follow the instructions for installing the tools [here](../)
 
+Note that the name of the compiler and tools on macOS will be slightly different:
+```
+riscv64-unknown-elf-gcc
+```
+
 ## Basic Linux/Unix Skills
 
 If you have never used Linux/Unix and a command line it is now a good time

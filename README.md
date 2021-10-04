@@ -73,6 +73,11 @@ Under macOS you need a packet manager.
 After installing homebrew, install the RISC-V tool bew package from
 [here](https://github.com/riscv-software-src/homebrew-riscv).
 
+Note that the name of the compiler and tools on macOS will be slightly different:
+```
+riscv64-unknown-elf-gcc
+```
+
 #### Linker file
 
 We need a linker file when compiling bare metal programs, particularly
