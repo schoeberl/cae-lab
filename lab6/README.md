@@ -7,7 +7,7 @@ During this lab session you will install and explore the official RISC-V tools. 
 In this lab you will explore the full RISC-V toolchain, including a port of `gcc`,
 and the RISC-V simulator Ripes.
 
-Follow the instructions for installing the tools [here](../)
+Follow the instructions for installing the tools [here](https://github.com/schoeberl/cae-lab)
 
 Note that the name of the compiler and tools on macOS will be slightly different:
 ```
