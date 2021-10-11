@@ -1,6 +1,6 @@
 # Lab Session 7
 
-During this lab session you will explore [Ripes](https://github.com/mortbopet/Ripes), 
+During this lab session you will further explore [Ripes](https://github.com/mortbopet/Ripes), 
 a graphical 5-stage processor pipeline simulator.
 
 Download the latest version of Ripes from [here](https://github.com/mortbopet/Ripes/releases).
@@ -10,6 +10,8 @@ Start Ripes by double clicking the AppImage/.exe file.
 
 Throughout the exercises you can see the values of the wires by marking the 'Display all signal values'
 checkbox. The colors identify the bit value of an input or, in the case of the Muxes, the selected input.
+
+For these exercises, ensure that you are using the 32-bit 5-stage processor with forwarding and hazard detection.
 
 ### Double Data Hazard
 
