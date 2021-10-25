@@ -103,7 +103,7 @@ You are now prepared for all RISC-V based lab work and projects.
 
  * [The RISC-V Instruction Set Manual](https://riscv.org/specifications/)
  * [Venus RV32I simulator](https://kvakil.github.io/venus/)
- * [RISC-V Green Card](https://www.cl.cam.ac.uk/teaching/1617/ECAD+Arch/files/docs/RISCVGreenCardv8-20151013.pdf)
+ * [RISC-V Green Card](https://inst.eecs.berkeley.edu/~cs61c/fa17/img/riscvcard.pdf)
  * [RISC-V Tools (GNU Toolchain, ISA Simulator, Tests)](https://github.com/riscv/riscv-tools)
  * [Rocket Chip Generator (including the RISC- tools)](https://github.com/freechipsproject/rocket-chip)
  * [Wildcat RV32I simulator](https://github.com/schoeberl/wildcat)
