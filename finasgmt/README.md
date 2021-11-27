@@ -22,16 +22,6 @@ For debugging it will also be a good idea to write out the register contents aft
 
 You are *NOT* required to simulate the pipeline stages.
 
-### Alternative: Single-Cycle Real Processor implementation
-
-If you have some hardware design experience (e.g., Digital Electronics 2), you might be curious
-if you can do the real thing, a hardware implementation of the RISC-V.
-Yes, you can! A hardware implementation counts as well as a possible simulation of a RISC-V.
-However, be aware that this is more work than a simple ISA simulator.
-I (Martin) can give you some help, but the TA probably not. You are more on your own.
-
-Start with a single-cycle implementation, which is itself a valid instruction set simulator.
-
 ### Input
 
 The binary input files contain the programs to be executed. Each instruction is 32 bits, so you read and store them as Java (or similar) ints in your program. Bit shifting the integer and AND'ing with a bit mask will give you the required fields of the instruction, such as the opcode and the RD.
@@ -50,6 +40,19 @@ a tiny Java program that can execute an `addi` instruction [IsaSim.java](IsaSim.
 
 For the Chisel based implementation your starting point is in src/scala/...
 Import the ```build.sbt``` in IntelliJ as you have done in Digital Electronics 2.
+
+### Alternative: Single-Cycle Real Processor implementation
+
+If you have some hardware design experience (e.g., Digital Electronics 2), you might be curious
+if you can do the real thing, a hardware implementation of the RISC-V.
+Yes, you can! A hardware implementation counts as well as a possible simulation of a RISC-V.
+However, be aware that this is more work than a simple ISA simulator.
+I (Martin) can give you some help, but the TA probably not. You are more on your own.
+
+Start with a single-cycle implementation, which is itself a valid instruction set simulator.
+
+However, if you are very ambitious you can also implement the 5-stage pipeline version
+of RISC-V.
 
 ## Tasks
 
