@@ -1,13 +1,13 @@
 # Lab Material for Computer Architecture
 
-This repository provides lab material for the 2017
+This repository provides lab material for the 2022
 [Computer Architecture and Engineering course (02155)](http://www2.imm.dtu.dk/courses/02155/) at DTU.
 Although this lab is customized for the DTU course, it can also serve as
 introduction lab for computer architecture in general and the RISC-V
 instruction set specifically.
 
-The lab is based on COD: [Computer Organization and Design RISC-V Edition](https://www.amazon.com/Computer-Organization-Design-RISC-V-Architecture/dp/0128122757):
-The Hardware Software Interface, 1st Edition,
+The lab is based on COD: [Computer Organization and Design RISC-V Edition](https://www.amazon.com/Computer-Organization-Design-RISC-V-Architecture/dp/0128203315):
+The Hardware Software Interface, 2nd Edition,
 by David A. Patterson (Author), John L. Hennessy (Author).
 
 To use this material you can: (1) just browse it online on GitHub,
