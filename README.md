@@ -1,13 +1,13 @@
 # Lab Material for Computer Architecture
 
-This repository provides lab material for the 2017
+This repository provides lab material for the 2022
 [Computer Architecture and Engineering course (02155)](http://www2.imm.dtu.dk/courses/02155/) at DTU.
 Although this lab is customized for the DTU course, it can also serve as
 introduction lab for computer architecture in general and the RISC-V
 instruction set specifically.
 
-The lab is based on COD: [Computer Organization and Design RISC-V Edition](https://www.amazon.com/Computer-Organization-Design-RISC-V-Architecture/dp/0128122757):
-The Hardware Software Interface, 1st Edition,
+The lab is based on COD: [Computer Organization and Design RISC-V Edition](https://www.amazon.com/Computer-Organization-Design-RISC-V-Architecture/dp/0128203315):
+The Hardware Software Interface, 2nd Edition,
 by David A. Patterson (Author), John L. Hennessy (Author).
 
 To use this material you can: (1) just browse it online on GitHub,
@@ -48,7 +48,7 @@ No installation is required, however, enable the file's execute bit to make it e
 
 ### RISC-V Tools
 
-For later lab exercises and your final project we need the full RISC-V toolchain, including a port of gcc. You can either install the toolchain using the instructions below, or you can download prebuilt binaries of all necessary tools from SiFive's Freedom Tools. Note that you must use the [August 2020 version](https://github.com/sifive/freedom-tools/releases/tag/v2020.08.0). Download the riscv64-unknown-elf-gcc version suited for your OS. 
+For later lab exercises and your final project we need the full RISC-V toolchain, including a port of gcc. Install the toolchain by following the instructions below.
 
 #### Ubuntu (Linux)
 
