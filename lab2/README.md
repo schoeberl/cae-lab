@@ -6,10 +6,17 @@ The lab session uses the [Venus RISC-V simulator](https://kvakil.github.io/venus
 which can execute in a browser with JavaScript enabled.
 We will explore basic machine instructions on the RISC-V instruction set.
 
-After the lab you will have a good overview of the first RISC-V
-instructions (RV32I).
+After the lab you will have a good overview of the first RISC-V instructions (RV32I).
 You will be able to simulate small to medium size programs on a RISC-V
 instruction set simulator.
+
+Note: For a simple start we point to the web-based Venus RISC-V simulator.
+However, in later labs we will use [Ripes](https://github.com/mortbopet/ripes),
+a graphical RISC-V simulator. Feel free to already use Ripes in the initial labs
+in single cycle simulation mode, if you prefer.
+
+When using Ripes, note that the environment call convention is different from Venus!
+Check [this page](https://github.com/mortbopet/Ripes/wiki/Environment-calls) for a list of the supported environment calls in Ripes.
 
 ### A Minimal Assembler Program
 #### (And How to Start Everything Off with Loading Constants)
