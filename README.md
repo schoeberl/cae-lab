@@ -54,7 +54,7 @@ For later lab exercises and your final project we need the full RISC-V toolchain
 
 Install the tools by running the following command in the terminal:
 ```bash
-sudo apt install gcc-riscv64-linux-gnu
+sudo apt-get install -y gcc-riscv64-unknown-elf
 ```
 
 #### Windows
@@ -70,13 +70,8 @@ Now follow the instructions for Ubuntu above.
 
 Under macOS you need a packet manager.
 [Homebrew](https://brew.sh/) is one of the popular ones.
-After installing homebrew, install the RISC-V tool bew package from
+After installing homebrew, install the RISC-V tool brew package from
 [here](https://github.com/riscv-software-src/homebrew-riscv).
-
-Note that the name of the compiler and tools on macOS will be slightly different:
-```
-riscv64-unknown-elf-gcc
-```
 
 #### Linker file
 
@@ -88,12 +83,12 @@ echo -e 'SECTIONS {\n.text :{*(*)}\n}' > $HOME/linker.ld
 
 Test the installation by opening a terminal and starting the compiler with:
 ```
-riscv64-linux-gnu-gcc
+riscv64-unknown-elf-gcc
 ```
 
 You should get an error, similar to following
 ```
-riscv64-linux-gnu-gcc: fatal error: no input files
+riscv64-unknown-elf-gcc: fatal error: no input files
 compilation terminated.
 ```
 which is good as you know the the compiler is installed.
