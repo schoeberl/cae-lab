@@ -16,7 +16,7 @@ a graphical RISC-V simulator. Feel free to already use Ripes in the initial labs
 in single cycle simulation mode, if you prefer.
 
 When using Ripes, note that the environment call convention is different from Venus!
-Check [this page](https://github.com/mortbopet/Ripes/wiki/Environment-calls) for a list of the supported environment calls in Ripes.
+Check [this page](https://github.com/mortbopet/Ripes/blob/master/docs/ecalls.md) for a list of the supported environment calls in Ripes.
 
 ### A Minimal Assembler Program
 #### (And How to Start Everything Off with Loading Constants)
