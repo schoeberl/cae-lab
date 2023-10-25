@@ -78,7 +78,7 @@ We have provided test programs that you can execute with simulator and then comp
 
 ## Deliverables
 
-For this assignment you will be working in groups of 1-2. You will not receive extra credits by doing all the work by yourself, so there is no benefit in working alone.
+For this assignment you will be working in groups of 2-3. You will not receive extra credits by doing all the work by yourself, so there is no benefit in working alone.
 
 Similar to the other assignments, you have to hand in a report using the front page specified in assignment 1. The report should contain an introduction, a description of the design and implementation of your simulator, and some discussion of your design.
 
