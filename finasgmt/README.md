@@ -47,7 +47,7 @@ If you have some hardware design experience (e.g., Digital Electronics 2), you m
 if you can do the real thing, a hardware implementation of the RISC-V.
 Yes, you can! A hardware implementation counts as well as a possible simulation of a RISC-V.
 However, be aware that this is more work than a simple ISA simulator.
-I (Martin) can give you some help, but the TA probably not. You are more on your own.
+The teacher(s) can give you some help, but the TA probably not. You are more on your own.
 
 Start with a single-cycle implementation, which is itself a valid instruction set simulator.
 
