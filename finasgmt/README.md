@@ -16,7 +16,7 @@ The final simulator has to read a binary file containing RISC-V instructions. Th
 
 Depending on the complexity of the input program it might execute arithmetic instructions, as well as load and store results in memory. In addition to the PC, you will therefore have to track registers, and potential memory content, throughout program execution.
 
-When you reach the end of the program, i.e., when the PC moves past the last instruction or exits the program with an exit `ecall 10` (see [Ripes env. call](https://github.com/mortbopet/Ripes/wiki/Environment-calls)), you have to write out the content of all the registers. We will compare this output to the expected results, thereby verifying the correctness of your simulator.
+When you reach the end of the program, i.e., when the PC moves past the last instruction or exits the program with an exit `ecall 10` (see [Ripes env. call](https://github.com/mortbopet/Ripes/blob/master/docs/ecalls.md)), you have to write out the content of all the registers. We will compare this output to the expected results, thereby verifying the correctness of your simulator.
 
 For debugging it will also be a good idea to write out the register contents after each instruction.
 
