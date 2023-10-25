@@ -1,6 +1,6 @@
 # Lab Material for Computer Architecture
 
-This repository provides lab material for the 2022
+This repository provides lab material for the 2023
 [Computer Architecture and Engineering course (02155)](http://www2.imm.dtu.dk/courses/02155/) at DTU.
 Although this lab is customized for the DTU course, it can also serve as
 introduction lab for computer architecture in general and the RISC-V
