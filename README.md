@@ -30,6 +30,7 @@ For lab sessions where no link is given, we will provide the material in CampusN
  * week 5: assignment
  * week 6: [Lab 6](lab6)
  * week 7: [Lab 7](lab7)
+ * following weeks: [RISC-V Simulator](finasgmt)
 
 ## Resources
 
