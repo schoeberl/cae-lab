@@ -71,8 +71,11 @@ Now follow the instructions for Ubuntu above.
 
 Under macOS you need a packet manager.
 [Homebrew](https://brew.sh/) is one of the popular ones.
-After installing homebrew, install the RISC-V tool brew package from
-[here](https://github.com/riscv-software-src/homebrew-riscv).
+After installing homebrew, install the RISC-V tools package with:
+
+```bash
+brew install sbt riscv64-elf-binutils
+```
 
 #### Linker file
 
