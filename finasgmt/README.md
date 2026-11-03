@@ -33,7 +33,7 @@ You should print out the register content at the program end. Additional for the
 ### Starting Point
 
 It is probably the most fun and rewarding when starting from scratch.
-Pick a programming language of you chose and implement the first instruction.
+Pick a programming language of your choice and implement the first instruction.
 
 However, if you are having troubles to get started we also provide you with
 a tiny Java program that can execute an `addi` instruction [IsaSim.java](IsaSim.java).
